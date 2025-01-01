@@ -11,7 +11,8 @@ const Test = ({
   updateLessons,
   selectedCategory,
   setSelectedCategory,
-  lessonName
+  lessonName,
+  setSelectedTab
 }) => {
   const [queSelected, setQueSelected] = useState(null);
 
@@ -56,7 +57,7 @@ const Test = ({
   return (
     <div className="w-full">
       <LessonHeader title={lessonName} />
-      <div className="flex flex-col mt-28 md:mt-0 text-white rounded-lg w-[100%]">
+      <div className="flex flex-col  md:mt-0 text-white rounded-lg w-[100%]">
         {queSelected ? (
           <CardComponet
             imageSrc={profileImage}
@@ -66,6 +67,7 @@ const Test = ({
             description={queSelected.question}
             queId={queSelected.id}
             selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
             updateLessons={updateLessons}
             Lessons={Lessons}
             setSelectedCategory={setSelectedCategory}
@@ -78,6 +80,7 @@ const Test = ({
                 width={350}
                 height={100}
                 layout="fit"
+                className="rounded-[15px]"
               /> : null}
           </CardComponet>
         ) : (

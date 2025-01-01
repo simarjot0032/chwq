@@ -1,7 +1,5 @@
 "use client";
-
 import { useState } from "react";
-import Question from "./components/Question";
 import Test from "./components/Test/Test";
 import LessonsData from "../lib/data/Data";
 import Danger from "./components/Svg/Danger";
@@ -43,16 +41,16 @@ export default function VerticalTabs() {
   };
 
   const handleTabChange = (lessonIndex) => {
-    if (canEnableTab(lessonIndex)) {
-      setSelectedTab(lessonIndex);
-      setSelectedCategory(Lessons[lessonIndex]?.categories[0]); // Reset selected category when switching lesson
-    }
+    // if (canEnableTab(lessonIndex)) { for testing
+    setSelectedTab(lessonIndex);
+    setSelectedCategory(Lessons[lessonIndex]?.categories[0]); // Reset selected category when switching lesson
+    // }
   };
   console.log(selectedCategory);
 
   return (
     <div className="h-max bg-black flex pt-10 gap-y-2.5 items-center justify-center mx-auto px-4">
-      <div className="flex flex-row lg:w-[65%]">
+      <div className="flex flex-row lg:w-[85%] xl:w-[75%] 2xl:w-[65%]">
         {/* Sidebar with Vertical Tabs (only visible on larger screens) */}
         <div className="flex flex-row items-start">
           <div className="bg-[#1E1E1E] text-white pt-[15px] pb-[15px] mr-[20px] rounded-[15px] w-full min-w-[15rem] md:w-[20%] hidden md:block">
@@ -65,11 +63,12 @@ export default function VerticalTabs() {
                     ? "bg-white text-black font-bold"
                     : "bg-[#1E1E1E] hover:bg-gray-700"
                 } ${
-                  !canEnableTab(lesson.index)
-                    ? "cursor-not-allowed opacity-50"
-                    : ""
+                  // !canEnableTab(lesson.index)
+                  //   ? "cursor-not-allowed opacity-50"
+                  //   : ""
+                  undefined
                 }`}
-                disabled={!canEnableTab(lesson.index)} // Disable button if previous lesson is not passed
+                // disabled={!canEnableTab(lesson.index)} // Disable button if previous lesson is not passed
               >
                 <div className="flex flex-row justify-start gap-2 w-full">
                   {/* Show icons based on lesson state */}
@@ -81,9 +80,7 @@ export default function VerticalTabs() {
                     )
                   ) : lesson.passed ? (
                     <GreenTick />
-                  ) : (
-                    <Lock />
-                  )}
+                  ) : undefined}
                   {lesson.title}
                 </div>
                 {/* Pill when Lesson is complete */}
@@ -99,11 +96,13 @@ export default function VerticalTabs() {
 
         {/* Content Area */}
         <div className="flex-1 flex-col mt-28 md:mt-0 md:flex-row flex text-white rounded-lg max-w-screen-xl">
-          {lessons.map((lesson) =>
+          {lessons.map((lesson, index) =>
             lesson.index == selectedTab ? (
               <Test
+                key={index}
                 profileImage="/strikerIcon.png"
                 selectedTab={selectedTab}
+                setSelectedTab={setSelectedTab}
                 Lessons={Lessons}
                 selectedCategory={selectedCategory}
                 updateLessons={setLessons}
@@ -130,10 +129,10 @@ export default function VerticalTabs() {
             value={selectedTab} // Use selectedTab as is, it should always be a number
             onChange={(e) => {
               const lessonIndex = Number(e.target.value);
-              if (canEnableTab(lessonIndex)) {
-                setSelectedTab(lessonIndex);
-                setSelectedCategory(null);
-              }
+              // if (canEnableTab(lessonIndex)) {
+              setSelectedTab(lessonIndex);
+              setSelectedCategory(null);
+              // }
             }}
           >
             {lessons.map((lesson, index) => (

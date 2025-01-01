@@ -4,6 +4,8 @@ import { openAIService } from "@/Service/openai-service";
 import LoadingStatus from "./Test/LoadingStatus";
 import ConfirmedStatus from "./Test/ConfirmedStatus";
 import ProgressBar from "./ProgressBar";
+import Image from "next/image";
+
 
 const CodeMirror = dynamic(() => import("react-codemirror"), { ssr: false });
 
@@ -15,7 +17,9 @@ const CodeMirrorEditor = ({
   questionId,
   Lessons,
   setSelectedCategory,
-  updateSelectedQuestion
+  setSelectedTab,
+  updateSelectedQuestion,
+  imageSrc
 }) => {
   const editorRef = useRef(null);
   const [code, setCode] = useState(`// Write your code here\n\n\n\n\n\n\n\n\n`);
@@ -118,7 +122,7 @@ const CodeMirrorEditor = ({
 
           if (nextCategory) {
             setSelectedCategory(nextCategory);
-            updateSelectedQuestion(nextCategory.questions[0]);
+            updateSelectedQuestion(nextCategory?.questions[0]);
             setShowResult(false);
             setShowConfirmed(false);
             setIsAnswerCorrect(null);
@@ -129,14 +133,37 @@ const CodeMirrorEditor = ({
       }
     }
   };
+  const handleNextLesson = () => {
+
+    if ((Object.keys(Lessons).length != selectedTab)) {
+      setSelectedTab(selectedTab + 1);
+      let nextCategory = Lessons[selectedTab + 1].categories.find(
+        (cat) => cat.catid === categoryId + 1
+      );
+
+
+      setSelectedCategory(Lessons[selectedTab + 1].categories[0]);
+      updateSelectedQuestion(nextCategory?.questions[0]);
+      setShowResult(false);
+      setShowConfirmed(false);
+      setIsAnswerCorrect(null);
+      setCode(`// Write your code here\n\n\n\n\n\n\n\n\n`);
+
+
+    }
+    else {
+      console.log("hi");
+    }
+  }
   useEffect(() => {
     let category = Lessons[selectedTab].categories;
     if (category.every((category) => category.questions.every((question) => question.status == true))) {
       setShowCongrats(true);
+      const IdOfTime = setTimeout(() => {
+        setShowCongrats((prev) => prev ? false : true);
+      }, 3000);
+      return () => clearTimeout(IdOfTime);
     }
-    setTimeout(() => {
-      setShowCongrats(false);
-    }, 3000)
   }, [Lessons, selectedTab, categoryId])
   return (
     <>
@@ -144,7 +171,7 @@ const CodeMirrorEditor = ({
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-[#2D2D2D] p-8 rounded-lg shadow-xl text-center">
             <h2 className="text-2xl font-bold text-green-500 mb-4">🎉 Congratulations! 🎉</h2>
-            <p className="text-white text-lg">You've completed all questions in this Lesson!</p>
+            <p className="text-white text-lg">You've completed all questions in this Lesson !</p>
           </div>
         </div>
       )}
@@ -193,7 +220,7 @@ const CodeMirrorEditor = ({
             }
           `}</style>
           <button
-            className="absolute bottom-3 right-4 z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[#333333] text-[13px] font-semibold rounded-lg"
+            className="absolute bottom-3 right-4 z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[#333333] text-[13px] font-semibold rounded-lg transition-transform transform hover:scale-105"
             type="submit"
             onClick={handleSubmit}
             disabled={isLoading}
@@ -205,18 +232,27 @@ const CodeMirrorEditor = ({
         )} */}
             Submit
           </button>
+
           <style jsx>{`
             .loader {
               display: inline-block;
-            }
-          `}</style>
+              }
+              `}</style>
         </div>
       )}
+
+      <Image width={48} height={48} src={imageSrc} alt="profile-icon" className="absolute right-[-5] bottom-9 " />
+
       {showResult &&
         (isAnswerCorrect ? (
-          <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-normal w-full sm:w-8/12">
-            Congratulations 🎉, your code worked successfully!{" "}
-          </div>
+          <>
+            <Image width={200} height={200} layout="fit" src={"/answerRight.png"} alt="conguralation image" />
+            <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-normal w-full sm:w-8/12">
+              Congratulations 🎉, your code worked successfully!{" "}
+            </div>
+            <Image width={20} height={18} src={imageSrc} alt="profile-icon" />
+
+          </>
         ) : (
           <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-normal w-full sm:w-8/12">
             Oops! 😅 There's a mistake in the code. Try again—you've got this!
@@ -250,7 +286,7 @@ const CodeMirrorEditor = ({
             </div>
 
             <button
-              className="z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[13px] font-semibold rounded-lg mt-1 disabled:cursor-not-allowed"
+              className="z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[13px] font-semibold rounded-lg mt-1 disabled:cursor-not-allowed transition-transform transform hover:scale-105"
               type="button"
               onClick={handleNextQuestion}
               disabled={Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.length, 0) == Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.reduce((total, no) => total + (no.status == true ? 1 : 0), 0), 0) ? true : false}

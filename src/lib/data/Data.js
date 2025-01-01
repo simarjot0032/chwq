@@ -584,7 +584,7 @@ const Lessons = {
             id: 1,
             title:
               "Galactic Database: Counting Hazardous Asteroids Threatening Civilizations",
-            question: `In the Interstellar Defense Network, various interstellar civilizations collaborate to monitor asteroids that may pose a threat. Each asteroid is cataloged in the 'asteroids' table with its 'hazard' status. Use a query to count the number of hazardous asteroids ('hazard = 'false') that could impact any of the civilizations. <br> Instructions to perform the exercise: <br> 1. Use 'SELECT COUNT(*)' to count the number of hazardous asteroids <br> 2. Use 'WHERE' to filter for records where 'hazard = 'false'`,
+            question: `In the Interstellar Defense Network, various interstellar civilizations collaborate to monitor asteroids that may pose a threat. Each asteroid is cataloged in the 'asteroids' table with its 'hazard' status. Use a query to count the number of hazardous asteroids ('hazard = 'true') that could impact any of the civilizations. <br> Instructions to perform the exercise: <br> 1. Use 'SELECT COUNT(*)' to count the number of hazardous asteroids <br> 2. Use 'WHERE' to filter for records where 'hazard = 'true'`,
             status: false,
           },
           {

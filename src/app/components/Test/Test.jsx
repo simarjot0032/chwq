@@ -62,7 +62,6 @@ const Test = ({
           <CardComponet
             imageSrc={profileImage}
             imageAlt="Profile Image"
-            title={selectedCategory.title}
             categoryId={selectedCategory.catid}
             description={queSelected.question}
             queId={queSelected.id}

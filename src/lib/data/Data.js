@@ -4,13 +4,12 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: "File Handling Basics",
         questions: [
           {
             id: 1,
             title: "Space Station: Log Daily Experiments",
             question: `At the Stellar Research Station, scientists conduct various experiments each day. You are tasked with creating a program to log these daily experiments to keep track of the station’s research activities. Instructions to perform the exercise:<br>
-            1.Define a constant FILE_PATH with the value 'experiments_log.txt'. <br> 2. Use input() to ask the user to enter the name of the experiment conducted today. <br> 3.Concatenate a newline character \\\\n to the experiment name. <br> 4. Open the file in append mode and write the experiment entry to experiments_log.txt. <br> 5.Print a confirmation message saying, '🚀 Experiment logged successfully!'`,
+            1.Define a constant 'FILE_PATH' with the value 'experiments_log.txt'. <br> 2. Use input() to ask the user to enter the name of the experiment conducted today. <br> 3.Concatenate a newline character \\\\n to the experiment name. <br> 4. Open the file in append mode and write the experiment entry to experiments_log.txt. <br> 5.Print a confirmation message saying, '🚀 Experiment logged successfully!'`,
             imageSrc: "/L1-C1-Q1.png",
             status: false,
           },
@@ -31,7 +30,7 @@ const Lessons = {
       },
       {
         catid: 2,
-        title: "File Handling Advanced",
+
         questions: [
           {
             id: 1,
@@ -58,7 +57,7 @@ const Lessons = {
       },
       {
         catid: 3,
-        title: "Data Size Calculation",
+
         questions: [
           {
             id: 1,
@@ -78,7 +77,7 @@ const Lessons = {
       },
       {
         catid: 4,
-        title: "Text Size Calculation",
+
         questions: [
           {
             id: 1,
@@ -96,7 +95,7 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: "File reading",
+
         questions: [
           {
             id: 1,
@@ -120,7 +119,7 @@ const Lessons = {
       },
       {
         catid: 2,
-        title: "File Appending",
+
         questions: [
           {
             id: 1,
@@ -144,7 +143,7 @@ const Lessons = {
       },
       {
         catid: 3,
-        title: "Sorting the data",
+
         questions: [
           {
             id: 1,
@@ -168,7 +167,7 @@ const Lessons = {
       },
       {
         catid: 4,
-        title: "Advanced Sorting",
+
         questions: [
           {
             id: 1,
@@ -185,7 +184,7 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: "Creating a table",
+
         questions: [
           {
             id: 1,
@@ -209,7 +208,7 @@ const Lessons = {
       },
       {
         catid: 2,
-        title: "Primary Key & Data Types",
+
         questions: [
           {
             id: 1,
@@ -227,7 +226,7 @@ const Lessons = {
       },
       {
         catid: 3,
-        title: "Alter Table",
+
         questions: [
           {
             id: 1,
@@ -245,7 +244,7 @@ const Lessons = {
       },
       {
         catid: 4,
-        title: "Drop Table",
+
         questions: [
           {
             id: 1,
@@ -274,7 +273,7 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: " ",
+
         questions: [
           {
             id: 1,
@@ -328,7 +327,7 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -346,7 +345,7 @@ const Lessons = {
       },
       {
         catid: 2,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -364,7 +363,7 @@ const Lessons = {
       },
       {
         catid: 3,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -382,7 +381,7 @@ const Lessons = {
       },
       {
         catid: 4,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -400,7 +399,7 @@ const Lessons = {
       },
       {
         catid: 5,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -423,7 +422,7 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -441,7 +440,7 @@ const Lessons = {
       },
       {
         catid: 2,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -459,7 +458,7 @@ const Lessons = {
       },
       {
         catid: 3,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -477,7 +476,7 @@ const Lessons = {
       },
       {
         catid: 4,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -501,7 +500,7 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -525,7 +524,7 @@ const Lessons = {
       },
       {
         catid: 2,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -549,7 +548,7 @@ const Lessons = {
       },
       {
         catid: 3,
-        title: "",
+
         questions: [
           {
             id: 1,
@@ -578,7 +577,6 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: "",
         questions: [
           {
             id: 1,

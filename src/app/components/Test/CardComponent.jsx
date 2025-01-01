@@ -2,7 +2,7 @@ import Image from "next/image";
 import Button from "./Button";
 import CodeMirrorEditor from "../CodeMirrorEditor";
 
-const Card = ({ imageSrc, imageAlt, title, description, updateLessons, selectedTab, categoryId, queId, Lessons, setSelectedCategory, updateSelectedQuestion, children, setSelectedTab }) => {
+const Card = ({ imageSrc, imageAlt, description, updateLessons, selectedTab, categoryId, queId, Lessons, setSelectedCategory, updateSelectedQuestion, children, setSelectedTab }) => {
   return (
     <div className="pt-2.5 pr-12 pl-4 bg-[#1E1E1E] rounded-[15px] relative">
       <div className="flex flex-row">
@@ -10,7 +10,7 @@ const Card = ({ imageSrc, imageAlt, title, description, updateLessons, selectedT
           <Image src={imageSrc} alt={imageAlt} width={80} height={80} /> {/* Use number for width and height */}
         </div>
         <div className="flex flex-col gap-y-2.5 ">
-          <span className="text-[14px] font-semibold text-[#ffffff]">{title}</span>
+          <span className="text-[14px] font-semibold text-[#ffffff]">{Lessons[selectedTab].categories[categoryId - 1].questions[queId - 1].title}</span>
           <div className="flex flex-col gap-4 px-5 py-4 bg-[#FFFFFF1A] rounded-tr-[15px] rounded-br-[15px] rounded-bl-[15px] relative ">
             <span className="text-[14px] font-[390] leading-6 text-[#ffffff]" >
               {description?.split("<br>")?.map((line, index) => <><span key={index}>{line}</span>{<br />}</>)}

@@ -7,7 +7,7 @@ const Button = ({ iconAlt, text, isActive = false }) => {
 
   return (
     <button className={buttonClass + " " + "transition-transform transform hover:scale-105"}>
-      <Image src={`/${iconAlt}.png`} alt={iconAlt} width={24} height={24} />
+      <Image src={`/${iconAlt}.svg`} alt={iconAlt} width={24} height={24} />
       <span>{text}</span>
     </button>
   );

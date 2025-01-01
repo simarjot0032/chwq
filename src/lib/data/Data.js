@@ -274,7 +274,7 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: "Cat 1",
+        title: " ",
         questions: [
           {
             id: 1,
@@ -328,7 +328,7 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: "Cat 1",
+        title: "",
         questions: [
           {
             id: 1,
@@ -346,7 +346,7 @@ const Lessons = {
       },
       {
         catid: 2,
-        title: "Cat 2",
+        title: "",
         questions: [
           {
             id: 1,
@@ -364,7 +364,7 @@ const Lessons = {
       },
       {
         catid: 3,
-        title: "Cat 3",
+        title: "",
         questions: [
           {
             id: 1,
@@ -382,7 +382,7 @@ const Lessons = {
       },
       {
         catid: 4,
-        title: "Cat 4",
+        title: "",
         questions: [
           {
             id: 1,
@@ -400,7 +400,7 @@ const Lessons = {
       },
       {
         catid: 5,
-        title: "Cat 5",
+        title: "",
         questions: [
           {
             id: 1,
@@ -423,7 +423,7 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: "Cat 1",
+        title: "",
         questions: [
           {
             id: 1,
@@ -441,7 +441,7 @@ const Lessons = {
       },
       {
         catid: 2,
-        title: "Cat 2",
+        title: "",
         questions: [
           {
             id: 1,
@@ -459,7 +459,7 @@ const Lessons = {
       },
       {
         catid: 3,
-        title: "Cat 3",
+        title: "",
         questions: [
           {
             id: 1,
@@ -477,7 +477,7 @@ const Lessons = {
       },
       {
         catid: 4,
-        title: "Cat 4",
+        title: "",
         questions: [
           {
             id: 1,
@@ -497,11 +497,11 @@ const Lessons = {
     ],
   },
   7: {
-    title: "Lesson 9",
+    title: "Lesson 7",
     categories: [
       {
         catid: 1,
-        title: "Cat 1",
+        title: "",
         questions: [
           {
             id: 1,
@@ -525,7 +525,7 @@ const Lessons = {
       },
       {
         catid: 2,
-        title: "Cat 2",
+        title: "",
         questions: [
           {
             id: 1,
@@ -549,7 +549,7 @@ const Lessons = {
       },
       {
         catid: 3,
-        title: "Cat 3",
+        title: "",
         questions: [
           {
             id: 1,
@@ -578,13 +578,13 @@ const Lessons = {
     categories: [
       {
         catid: 1,
-        title: "Cat 1",
+        title: "",
         questions: [
           {
             id: 1,
             title:
               "Galactic Database: Counting Hazardous Asteroids Threatening Civilizations",
-            question: `In the Interstellar Defense Network, various interstellar civilizations collaborate to monitor asteroids that may pose a threat. Each asteroid is cataloged in the 'asteroids' table with its 'hazard' status. Use a query to count the number of hazardous asteroids ('hazard = 'true') that could impact any of the civilizations. <br> Instructions to perform the exercise: <br> 1. Use 'SELECT COUNT(*)' to count the number of hazardous asteroids <br> 2. Use 'WHERE' to filter for records where 'hazard = 'true'`,
+            question: `In the Interstellar Defense Network, various interstellar civilizations collaborate to monitor asteroids that may pose a threat. Each asteroid is cataloged in the 'asteroids' table with its 'hazard' status. Use a query to count the number of hazardous asteroids ('hazard = 'false') that could impact any of the civilizations. <br> Instructions to perform the exercise: <br> 1. Use 'SELECT COUNT(*)' to count the number of hazardous asteroids <br> 2. Use 'WHERE' to filter for records where 'hazard = 'false'`,
             status: false,
           },
           {

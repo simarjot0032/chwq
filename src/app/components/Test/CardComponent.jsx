@@ -12,12 +12,12 @@ const Card = ({ imageSrc, imageAlt, title, description, updateLessons, selectedT
         <div className="flex flex-col gap-y-2.5 ">
           <span className="text-[14px] font-semibold text-[#ffffff]">{title}</span>
           <div className="flex flex-col gap-4 px-5 py-4 bg-[#FFFFFF1A] rounded-tr-[15px] rounded-br-[15px] rounded-bl-[15px] relative ">
-            <span className="text-[14px] font-[390] leading-6 text-[#ffffff]">
-              {description?.split("<br>")?.map((line) => <>{line}{<br />}</>)}
+            <span className="text-[14px] font-[390] leading-6 text-[#ffffff]" >
+              {description?.split("<br>")?.map((line, index) => <><span key={index}>{line}</span>{<br />}</>)}
             </span>
             {children}
 
-            <Image src={imageSrc} alt={imageAlt} width={18} height={18} className="absolute right-1 bottom-1" /> {/* Use number for width and height */}
+            <Image src={imageSrc} alt={imageAlt} width={25} height={25} className="absolute right-1 bottom-1" /> {/* Use number for width and height */}
 
           </div>
           <div className="flex gap-2">

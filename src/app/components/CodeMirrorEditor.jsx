@@ -250,7 +250,7 @@ const CodeMirrorEditor = ({
             <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-normal w-full sm:w-8/12">
               Congratulations 🎉, your code worked successfully!{" "}
             </div>
-            <Image width={20} height={18} src={imageSrc} alt="profile-icon" />
+            <Image width={25} height={25} src={imageSrc} alt="profile-icon" />
 
           </>
         ) : (

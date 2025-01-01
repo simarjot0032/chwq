@@ -189,7 +189,7 @@ const Lessons = {
           {
             id: 1,
             title: "Astronaut Database: Creating a Space Mission Table",
-            question: `At the International Space Agency, a database is being set up to track astronauts on various missions. Each entry includes the astronaut's name, their role on the mission, the mission’s launch year, and the total days spent in space. <br> Instructions to perform the exercise: <br> 1. Use 'CREATE TABLE' to define a table named 'space_mission'. <br> 2. Define columns for 'astronaut_name' (TEXT), 'role' (TEXT), 'launch_year' (INTEGER), and 'days_in_space' (INTEGER`,
+            question: `At the International Space Agency, a database is being set up to track astronauts on various missions. Each entry includes the astronaut's name, their role on the mission, the mission’s launch year, and the total days spent in space. <br> Instructions to perform the exercise: <br> 1. Use 'CREATE TABLE' to define a table named 'space_mission'. <br> 2. Define columns for 'astronaut_name' (TEXT), 'role' (TEXT), 'launch_year' (INTEGER), and 'days_in_space' (INTEGER)`,
             status: false,
           },
           {

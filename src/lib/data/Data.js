@@ -167,7 +167,6 @@ const Lessons = {
       },
       {
         catid: 4,
-
         questions: [
           {
             id: 1,

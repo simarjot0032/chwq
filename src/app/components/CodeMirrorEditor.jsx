@@ -241,7 +241,7 @@ const CodeMirrorEditor = ({
         </div>
       )}
 
-      <Image width={48} height={48} src={imageSrc} alt="profile-icon" className="absolute right-[-5] bottom-9 " />
+      <Image width={48} height={48} src={imageSrc} alt="profile-icon" className="absolute right-[-5px] bottom-9 " />
 
       {showResult &&
         (isAnswerCorrect ? (

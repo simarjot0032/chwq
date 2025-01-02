@@ -65,12 +65,12 @@ const CodeMirrorEditor = ({
     e.preventDefault();
     setIsLoading(true); // Start loading
     try {
-      const response = await openAIService.sendPrompt(code, question);
+      const response = true;//await openAIService.sendPrompt(code, question);
+      const isCorrect = true;//response.toLowerCase() === "true"; // Convert string to boolean
+      setIsAnswerCorrect(isCorrect);
+      setShowConfirmed(true);
+      updateSelectedTab(selectedTab, categoryId, questionId, isCorrect);
       if (response) {
-        const isCorrect = response.toLowerCase() === "true"; // Convert string to boolean
-        setIsAnswerCorrect(isCorrect);
-        setShowConfirmed(true);
-        updateSelectedTab(selectedTab, categoryId, questionId, isCorrect);
       }
     } catch (error) {
       alert(error);

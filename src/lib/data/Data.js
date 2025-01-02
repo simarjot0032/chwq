@@ -99,13 +99,13 @@ const Lessons = {
           {
             id: 1,
             title: "Class Grades: Displaying Student Scores",
-            question: `In the School of Excellence, teachers need to review the latest test scores for each student. The scores are stored in a file named 'grades.csv', where each line contains a student's name and score. Write a program to read each student’s name and score, and display them for review. <br> Instructions to perform the exercise: <br> 1. Open the file 'grades.csv' in read mode . <br> 2. Loop through each line, splitting it by a comma to separate the name and score.  <br> 3. Print each student’s name and score. <br> 4. Close the file once all lines are processed.`,
+            question: `In the School of Excellence, teachers need to review the latest test scores for each student. The scores are stored in a file named 'grades.csv' , where each line contains a student's name and score. Write a program to read each student’s name and score, and display them for review. <br> Instructions to perform the exercise: <br> 1. Open the file 'grades.csv' in read mode . <br> 2. Loop through each line, splitting it by a comma to separate the name and score.  <br> 3. Print each student’s name and score. <br> 4. Close the file once all lines are processed.`,
             status: false,
           },
           {
             id: 2,
             title: "Space Mission: Displaying Crew Points",
-            question: `Onboard the SS Stellar Voyager, each crew member earns points for completing their daily tasks. The points are logged in a file named 'crew_points.csv', with each line containing the crew member's name and their accumulated points. Write a program to display each crew member’s name and points from the log. <br> Instructions to perform the exercise: <br> 1. Open the file 'crew_points.csv' in read mode. <br> 2. Use a loop to process each line, separating the name and points using 'split()' . <br> 3. Print each crew member’s name along with their points. <br> 4. Close the file once all data has been displayed.`,
+            question: `Onboard the SS Stellar Voyager, each crew member earns points for completing their daily tasks. The points are logged in a file named 'crew_points.csv' , with each line containing the crew member's name and their accumulated points. Write a program to display each crew member’s name and points from the log. <br> Instructions to perform the exercise: <br> 1. Open the file 'crew_points.csv' in read mode. <br> 2. Use a loop to process each line, separating the name and points using 'split()' . <br> 3. Print each crew member’s name along with their points. <br> 4. Close the file once all data has been displayed.`,
             status: false,
           },
           {
@@ -247,7 +247,7 @@ const Lessons = {
           {
             id: 1,
             title: "Fantasy Kingdom: Recreating the Kingdom’s Creatures Table",
-            question: `In the Fantasy Kingdom Research Lab, mythical creature data was stored in a table named 'creatures' . Unfortunately, an error was discovered in the table design, requiring the table to be dropped and recreated with an additional column for habitat type. After recreating it, the 'habitat_type' column is added with the default value 'Unknown' . <br> Instructions to perform the exercise: <br> 1. Use 'DROP TABLE' to delete the existing 'creatures' table. <br> 2. Use 'CREATE' 'TABLE' to redefine the 'creatures' table with columns for 'creature_name', 'creature_type', and 'age' . <br> 3. Use 'ALTER' 'TABLE' to add a column 'habitat_type' with the default value 'Unknown' .`,
+            question: `In the Fantasy Kingdom Research Lab, mythical creature data was stored in a table named 'creatures' . Unfortunately, an error was discovered in the table design, requiring the table to be dropped and recreated with an additional column for habitat type. After recreating it, the 'habitat_type' column is added with the default value 'Unknown' . <br> Instructions to perform the exercise: <br> 1. Use 'DROP TABLE' to delete the existing 'creatures' table. <br> 2. Use 'CREATE' 'TABLE' to redefine the 'creatures' table with columns for 'creature_name' , 'creature_type' , and 'age' . <br> 3. Use 'ALTER' 'TABLE' to add a column 'habitat_type' with the default value 'Unknown' .`,
             status: false,
           },
           {
@@ -430,7 +430,7 @@ const Lessons = {
           {
             id: 2,
             title: "Connecting to the Lost Treasures Database",
-            question: `The Society of Atlantean Treasures maintains records of the legendary treasures believed to be lost with the sinking of Atlantis. These records are stored in 'treasures.db', and archaeologists must establish a connection to the database to access these secrets. <br> Instructions to perform the exercise: <br> 1. Use 'sqlite3.connect()' to connect to the 'treasures.db' file. <br> 2. Print a message confirming that the connection has been successfully established. <br> 3. Use 'connection.close()' to properly close the connection and print a message confirming that it’s closed.`,
+            question: `The Society of Atlantean Treasures maintains records of the legendary treasures believed to be lost with the sinking of Atlantis. These records are stored in 'treasures.db' , and archaeologists must establish a connection to the database to access these secrets. <br> Instructions to perform the exercise: <br> 1. Use 'sqlite3.connect()' to connect to the 'treasures.db' file. <br> 2. Print a message confirming that the connection has been successfully established. <br> 3. Use 'connection.close()' to properly close the connection and print a message confirming that it’s closed.`,
             status: false,
           },
         ],
@@ -460,13 +460,13 @@ const Lessons = {
           {
             id: 1,
             title: "Reactivating Ancient Defense Systems",
-            question: `In the Atlantis Security Center, engineers are tasked with reactivating defense systems to safeguard Atlantis. The 'defense_systems' table logs each system's status and priority level. The 'activate_defenses()' function will set all systems with 'priority=backup' to 'online' status whenever the command '2' is entered. <br> Instructions to perform the exercise: <br> 1. Define a function 'activate_defenses()' that updates all rows in the 'defense_systems' table where 'priority' is 'backup', setting 'status' to 'online'. <br> 2. Use 'cursor.execute()' to execute the 'UPDATE' statement, followed by a confirmation message printout. <br> 3. Set up an infinite loop, and call 'activate_defenses()' if the command is '2' .`,
+            question: `In the Atlantis Security Center, engineers are tasked with reactivating defense systems to safeguard Atlantis. The 'defense_systems' table logs each system's status and priority level. The 'activate_defenses()' function will set all systems with 'priority' '=' 'backup' to 'online' status whenever the command '2' is entered. <br> Instructions to perform the exercise: <br> 1. Define a function 'activate_defenses()' that updates all rows in the 'defense_systems' table where 'priority' is 'backup' , setting 'status' to 'online'. <br> 2. Use 'cursor.execute()' to execute the 'UPDATE' statement, followed by a confirmation message printout. <br> 3. Set up an infinite loop, and call 'activate_defenses()' if the command is '2' .`,
             status: false,
           },
           {
             id: 2,
             title: "Reactivating Power Grids",
-            question: `In the Atlantis Energy Control Center, technicians monitor and maintain ancient power grids stored in the 'power_grids' table. To conserve energy, backup power grids are kept offline until needed. The 'activate_power_grids()' function will set the status of all grids with 'priority=backup' to 'online' when command '2' is entered. <br> Instructions to perform the exercise: <br> 1. Define a function 'activate_power_grids()' that updates the 'status' of all rows in the 'power_grids' table where 'priority' is 'backup' to 'online' . <br> 2. Use 'cursor.execute()' to execute the 'UPDATE' statement and print a message confirming activation. <br> 3. Set up an infinite loop, and call 'activate_power_grids()' if the command is '2' .`,
+            question: `In the Atlantis Energy Control Center, technicians monitor and maintain ancient power grids stored in the 'power_grids' table. To conserve energy, backup power grids are kept offline until needed. The 'activate_power_grids()' function will set the status of all grids with 'priority' '=' 'backup' to 'online' when command '2' is entered. <br> Instructions to perform the exercise: <br> 1. Define a function 'activate_power_grids()' that updates the 'status' of all rows in the 'power_grids' table where 'priority' is 'backup' to 'online' . <br> 2. Use 'cursor.execute()' to execute the 'UPDATE' statement and print a message confirming activation. <br> 3. Set up an infinite loop, and call 'activate_power_grids()' if the command is '2' .`,
             status: false,
           },
         ],
@@ -478,14 +478,14 @@ const Lessons = {
           {
             id: 1,
             title: "Activating Backup Defense Systems and Printing Columns",
-            question: `In the Atlantis Security Command Center, defense systems need to be reactivated and their current status reviewed. The 'activate_defenses()' function will bring all backup systems in 'defense_systems' online. The 'show_defense_systems()' function will call 'print_columns("defense_systems")' to display all column names in the 'defense_systems' table for better data understanding. <br> Instructions to perform the exercise: <br> 1. Define a function 'activate_defenses()' to set 'status' to 'online' for all rows with 'priority=backup' in 'defense_systems' , then commit the changes and print a confirmation message. <br> 2. Define a 'print_columns(table_name)' function to fetch and print column names from any given table using 'PRAGMA_TABLE_INFO' . <br> 3. Define 'show_defense_systems()' to call 'print_columns("defense_systems")' . <br> 4. In the infinite loop, call 'activate_defenses()' with command '2' and 'show_defense_systems()' with command '3' .`,
+            question: `In the Atlantis Security Command Center, defense systems need to be reactivated and their current status reviewed. The 'activate_defenses()' function will bring all backup systems in 'defense_systems' online. The 'show_defense_systems()' function will call 'print_columns("defense_systems")' to display all column names in the 'defense_systems' table for better data understanding. <br> Instructions to perform the exercise: <br> 1. Define a function 'activate_defenses()' to set 'status' to 'online' for all rows with 'priority' '=' 'backup' in 'defense_systems' , then commit the changes and print a confirmation message. <br> 2. Define a 'print_columns(table_name)' function to fetch and print column names from any given table using 'PRAGMA_TABLE_INFO' . <br> 3. Define 'show_defense_systems()' to call 'print_columns("defense_systems")' . <br> 4. In the infinite loop, call 'activate_defenses()' with command '2' and 'show_defense_systems()' with command '3' .`,
             status: false,
           },
           {
             id: 2,
             title:
               "Activating Power Backup Systems and Displaying Column Information",
-            question: `In the Atlantis Energy Control Center, technicians are responsible for managing the power grid. When backup systems need to be activated, the 'activate_power_backups()' function sets them online in the 'power_grids' table. The 'show_power_systems()' function displays column names in the 'power_grids' table by calling 'print_columns("power_grids")' , helping technicians understand the structure of stored data. <br> Instructions to perform the exercise: <br> 1. Define a function 'activate_power_backups()' to set 'status' to 'online' for all rows with 'priority=backup' in 'power_grids' , then commit the changes and print a confirmation. <br> 2. Define 'print_columns(table_name)' to retrieve and print column names from any table using 'PRAGMA_TABLE_INFO' . <br> 3. Define 'show_power_systems()' to call 'print_columns("power_grids")' . <br> 4. In the infinite loop, call 'activate_power_backups()' with command '2' and 'show_power_systems()' with command '3' .`,
+            question: `In the Atlantis Energy Control Center, technicians are responsible for managing the power grid. When backup systems need to be activated, the 'activate_power_backups()' function sets them online in the 'power_grids' table. The 'show_power_systems()' function displays column names in the 'power_grids' table by calling 'print_columns("power_grids")' , helping technicians understand the structure of stored data. <br> Instructions to perform the exercise: <br> 1. Define a function 'activate_power_backups()' to set 'status' to 'online' for all rows with 'priority' '=' 'backup' in 'power_grids' , then commit the changes and print a confirmation. <br> 2. Define 'print_columns(table_name)' to retrieve and print column names from any table using 'PRAGMA_TABLE_INFO' . <br> 3. Define 'show_power_systems()' to call 'print_columns("power_grids")' . <br> 4. In the infinite loop, call 'activate_power_backups()' with command '2' and 'show_power_systems()' with command '3' .`,
             status: false,
           },
         ],
@@ -502,19 +502,19 @@ const Lessons = {
           {
             id: 1,
             title: "Linking Artifacts with Pyramid Sites",
-            question: `In the Pyramid Archaeology Center, researchers document artifacts found at different pyramid sites. They want to link the 'pyramid_sites' table to the 'artifacts' table by adding an 'artifact_id' column in 'pyramid_sites' , which references 'artifact_id' in 'artifacts' . Then, they will update 'pyramid_sites' to assign 'artifact_id = 3' to 'site_id = 1' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'artifact_id' column to 'pyramid_sites', referencing 'artifact_id' in the 'artifacts' table. <br> 2. Use 'UPDATE' to set 'artifact_id' '=' '3' in 'pyramid_sites' for the record where 'site_id = 1' .`,
+            question: `In the Pyramid Archaeology Center, researchers document artifacts found at different pyramid sites. They want to link the 'pyramid_sites' table to the 'artifacts' table by adding an 'artifact_id' column in 'pyramid_sites' , which references 'artifact_id' in 'artifacts' . Then, they will update 'pyramid_sites' to assign 'artifact_id' '=' '3' to 'site_id' '=' '1' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'artifact_id' column to 'pyramid_sites' , referencing 'artifact_id' in the 'artifacts' table. <br> 2. Use 'UPDATE' to set 'artifact_id' '=' '3' in 'pyramid_sites' for the record where 'site_id' '=' '1' .`,
             status: false,
           },
           {
             id: 2,
             title: "Linking Pharaohs with Burial Chambers",
-            question: `At the Museum of Ancient Egypt, historians link pharaohs with their respective burial chambers in pyramids. They want to add a 'pharaoh_id' column to the 'burial_chambers' table, referencing 'pharaoh_id' in the 'pharaohs' table. Then, they will set 'pharaoh_id = 5' for the burial chamber with 'chamber_id = 1' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add a 'pharaoh_id' column to 'burial_chambers' , referencing 'pharaoh_id' in the 'pharaohs' table. <br> 2. Use 'UPDATE' to set 'pharaoh_id = 5' in 'burial_chambers' where 'chamber_id = 1' .`,
+            question: `At the Museum of Ancient Egypt, historians link pharaohs with their respective burial chambers in pyramids. They want to add a 'pharaoh_id' column to the 'burial_chambers' table, referencing 'pharaoh_id' in the 'pharaohs' table. Then, they will set 'pharaoh_id' '=' '5' for the burial chamber with 'chamber_id' '=' '1' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add a 'pharaoh_id' column to 'burial_chambers' , referencing 'pharaoh_id' in the 'pharaohs' table. <br> 2. Use 'UPDATE' to set 'pharaoh_id' '=' '5' in 'burial_chambers' where 'chamber_id' '=' '1' .`,
             status: false,
           },
           {
             id: 3,
             title: "Assigning Engineers to Pyramid Constructions",
-            question: `The Ancient Construction Records of Egypt detail engineers who oversaw pyramid constructions. The 'pyramids' table needs to be updated with an 'engineer_id' column to reference 'engineer_id' in the 'engineers' table. Once linked, the 'engineer_id' for the pyramid with 'pyramid_id' '=' '2' should be updated to '7' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'engineer_id' column to 'pyramids', referencing 'engineer_id' in the 'engineers' table. <br> 2. Use 'UPDATE' to set 'engineer_id = 7' in 'pyramids' where 'pyramid_id = 2' .`,
+            question: `The Ancient Construction Records of Egypt detail engineers who oversaw pyramid constructions. The 'pyramids' table needs to be updated with an 'engineer_id' column to reference 'engineer_id' in the 'engineers' table. Once linked, the 'engineer_id' for the pyramid with 'pyramid_id' '=' '2' should be updated to '7' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'engineer_id' column to 'pyramids' , referencing 'engineer_id' in the 'engineers' table. <br> 2. Use 'UPDATE' to set 'engineer_id' '=' '7' in 'pyramids' where 'pyramid_id' '=' '2' .`,
             status: false,
           },
         ],
@@ -526,7 +526,7 @@ const Lessons = {
           {
             id: 1,
             title: "Assigning Restoration Experts to Pyramids",
-            question: `In the Ancient Pyramids Preservation Society, each pyramid is periodically assigned a restoration expert to maintain its structure. The 'pyramids' table needs an 'expert_id' column to reference 'expert_id' in the 'restoration_experts' table . Once the column is added, the 'expert_id' for the pyramid with 'pyramid_id 1' should be set to '1', and 'expert_id' for all pyramids with 'pyramid_id' '>=' '2' should be set to '2' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'expert_id' column to 'pyramids', referencing 'expert_id' in 'restoration_experts' . <br> 2. Use 'UPDATE' to set 'expert_id' '=' '1' for the pyramid with 'pyramid_id' '=' '1' . <br> 3. Use another 'UPDATE' to set 'expert_id' '=' '2' for all pyramids with 'pyramid_id' '>=' '2' .`,
+            question: `In the Ancient Pyramids Preservation Society, each pyramid is periodically assigned a restoration expert to maintain its structure. The 'pyramids' table needs an 'expert_id' column to reference 'expert_id' in the 'restoration_experts' table . Once the column is added, the 'expert_id' for the pyramid with 'pyramid_id 1' should be set to '1' , and 'expert_id' for all pyramids with 'pyramid_id' '>=' '2' should be set to '2' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'expert_id' column to 'pyramids' , referencing 'expert_id' in 'restoration_experts' . <br> 2. Use 'UPDATE' to set 'expert_id' '=' '1' for the pyramid with 'pyramid_id' '=' '1' . <br> 3. Use another 'UPDATE' to set 'expert_id' '=' '2' for all pyramids with 'pyramid_id' '>=' '2' .`,
             status: false,
           },
           {
@@ -538,7 +538,7 @@ const Lessons = {
           {
             id: 3,
             title: "Assigning Historians to Artifact Exhibits",
-            question: `In the National Museum of Ancient Egypt, historians are assigned to curate specific artifact exhibits in the 'artifact_exhibits' table. To manage this, a 'historian_id' column is added to 'artifact_exhibits', referencing 'historian_id' in 'historians' . The 'historian_id' for the exhibit with 'exhibit_id' '=' '1' should be set to '5', and for all exhibits with 'exhibit_id' '>=' '2' , 'historian_id' should be set to '6' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add a 'historian_id' column to 'artifact_exhibits' , referencing 'historian_id' in 'historians' . <br> 2. Use 'UPDATE' to set 'historian_id' '=' '5' for the exhibit with 'exhibit_id' '=' '1' . <br> 3. Use another 'UPDATE' to set 'historian_id' '=' '6' for all exhibits with 'exhibit_id' '>=' '2' .`,
+            question: `In the National Museum of Ancient Egypt, historians are assigned to curate specific artifact exhibits in the 'artifact_exhibits' table. To manage this, a 'historian_id' column is added to 'artifact_exhibits' , referencing 'historian_id' in 'historians' . The 'historian_id' for the exhibit with 'exhibit_id' '=' '1' should be set to '5' , and for all exhibits with 'exhibit_id' '>=' '2' , 'historian_id' should be set to '6' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add a 'historian_id' column to 'artifact_exhibits' , referencing 'historian_id' in 'historians' . <br> 2. Use 'UPDATE' to set 'historian_id' '=' '5' for the exhibit with 'exhibit_id' '=' '1' . <br> 3. Use another 'UPDATE' to set 'historian_id' '=' '6' for all exhibits with 'exhibit_id' '>=' '2' .`,
             status: false,
           },
         ],

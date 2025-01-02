@@ -81,7 +81,7 @@ const Lessons = {
           {
             id: 1,
             title: "Secret Messages: Calculate Encrypted Message Size",
-            question: `In a top-secret agency, encrypted messages are recorded for each mission. To ensure efficiency, only the size of the message text is stored, excluding any file overhead. Write a program to calculate the size of the actual message text for record-keeping. <br> Instructions to perform the exercise: <br> 1. Define a function 'get_str_size(var)' that calculates and prints only the text size by subtracting the size <br> of an empty string. <br> 2. Use 'input()' to ask for a new encrypted message and calculate its text size. <br> 3. Print the message text size using the format '"🕵️ Message text data: [bytes] bytes"'.`,
+            question: `In a top-secret agency, encrypted messages are recorded for each mission. To ensure efficiency, only the size of the message text is stored, excluding any file overhead. Write a program to calculate the size of the actual message text for record-keeping. <br> Instructions to perform the exercise: <br> 1. Define a function 'get_str_size(var)' that calculates and prints only the text size by subtracting the size of an empty string. <br> 2. Use 'input()' to ask for a new encrypted message and calculate its text size. <br> 3. Print the message text size using the format '"🕵️ Message text data: [bytes] bytes"'.`,
             imageSrc: "/L1-C4-Q1.png",
             status: false,
           },

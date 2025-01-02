@@ -234,7 +234,7 @@ const CodeMirrorEditor = ({
             }
           `}</style>
           <button
-            className="absolute bottom-3 right-4 z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[#333333] text-[14px] font-semibold rounded-lg transition-transform transform hover:scale-105 tracking-[1px]"
+            className="absolute bottom-3 right-4 z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[#333333] text-[14px] font-semibold rounded-lg transition-transform transform hover:scale-105 "
             type="submit"
             onClick={handleSubmit}
             disabled={isLoading}

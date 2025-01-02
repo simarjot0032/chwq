@@ -58,7 +58,7 @@ const CodeMirrorEditor = ({
     };
 
     updateLessons(updatedLessons);
-    console.log(updatedLessons);
+
   };
 
   const handleSubmit = async (e) => {

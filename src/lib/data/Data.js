@@ -15,13 +15,13 @@ const Lessons = {
           {
             id: 2,
             title: "Mystic Library: Cataloging New Books",
-            question: `In the heart of the Mystic Library, librarians are constantly adding new magical books to the collection. You need to create a program that helps catalog these new arrivals by recording their titles. <br> Instructions to perform the exercise: <br> 1. Define a constant 'FILE_PATH' with the value 'library_catalog.txt' . <br> 2. Use 'input()' to prompt the user to enter the title of a new book . <br> 3. Concatenate a newline character '\\\\n' to the book title . <br> 4. Open the file in append mode and write the book title to 'library_catalog.txt' . <br> 5. Print a message saying, "📚 New book added to the catalog!"`,
+            question: `In the heart of the Mystic Library, librarians are constantly adding new magical books to the collection. You need to create a program that helps catalog these new arrivals by recording their titles. <br> Instructions to perform the exercise: <br> 1. Define a constant 'FILE_PATH' with the value 'library_catalog.txt' . <br> 2. Use 'input()' to prompt the user to enter the title of a new book. <br> 3. Concatenate a newline character '\\\\n' to the book title. <br> 4. Open the file in append mode and write the book title to 'library_catalog.txt' . <br> 5. Print a message saying, "📚 New book added to the catalog!"`,
             status: false,
           },
           {
             id: 3,
             title: "Treasure Island: Log Pirate Discoveries",
-            question: `On Treasure Island, pirates are uncovering hidden treasures and valuable artifacts. Create a program to log each discovery, ensuring that all treasures found are recorded for future reference. <br> Instructions to perform the exercise: <br> 1. Define a constant 'FILE_PATH' with the value '"pirate_discoveries.txt"' . <br> 2. Use 'input()' to ask the user to describe the treasure discovered . <br> 3. Concatenate a newline character '\\\\n' to the treasure description. <br> 4. Open the file in append mode and write the treasure description to 'pirate_discoveries.txt' . <br> 5. Print a message saying, "🏴‍☠️ Treasure discovery logged successfully!" `,
+            question: `On Treasure Island, pirates are uncovering hidden treasures and valuable artifacts. Create a program to log each discovery, ensuring that all treasures found are recorded for future reference. <br> Instructions to perform the exercise: <br> 1. Define a constant 'FILE_PATH' with the value '"pirate_discoveries.txt"' . <br> 2. Use 'input()' to ask the user to describe the treasure discovered. <br> 3. Concatenate a newline character '\\\\n' to the treasure description. <br> 4. Open the file in append mode and write the treasure description to 'pirate_discoveries.txt' . <br> 5. Print a message saying, "🏴‍☠️ Treasure discovery logged successfully!" `,
             imageSrc: "/L1-C1-Q3.png",
             status: false,
           },
@@ -48,7 +48,7 @@ const Lessons = {
           {
             id: 3,
             title: "Recipe Book: Adding New Recipes",
-            question: `In the Gourmet Kitchen, a chef records new recipes in a digital recipe book. Each time a recipe is added, you need to track the increase in file size to see how much data was added. <br> Instructions to perform the exercise: <br> 1. Define a constant 'FILE_PATH' with the value '"recipes.txt"' . <br> 2. Write a function 'get_file_size()' to print and return the size of 'recipes.txt' in bytes. <br> 3. Capture the initial file size with 'get_file_size()' . <br> 4. Prompt the user for a new recipe entry and append it to the file. <br> 5. Calculate the difference in file size, then print the message, "🍲 Recipe added: [bytes] bytes" .`,
+            question: `In the Gourmet Kitchen, a chef records new recipes in a digital recipe book. Each time a recipe is added, you need to track the increase in file size to see how much data was added. <br> Instructions to perform the exercise: <br> 1. Define a constant 'FILE_PATH' with the value '"recipes.txt"' . <br> 2. Write a function 'get_file_size()' to print and return the size of 'recipes.txt' in bytes. <br> 3. Capture the initial file size with 'get_file_size()' . <br> 4. Prompt the user for a new recipe entry and append it to the file. <br> 5. Calculate the difference in file size, then print the message, "🍲 Recipe added: [bytes] bytes".`,
             imageSrc: "/L1-C2-Q3.png",
             status: false,
           },
@@ -99,7 +99,7 @@ const Lessons = {
           {
             id: 1,
             title: "Class Grades: Displaying Student Scores",
-            question: `In the School of Excellence, teachers need to review the latest test scores for each student. The scores are stored in a file named 'grades.csv' , where each line contains a student's name and score. Write a program to read each student’s name and score, and display them for review. <br> Instructions to perform the exercise: <br> 1. Open the file 'grades.csv' in read mode . <br> 2. Loop through each line, splitting it by a comma to separate the name and score.  <br> 3. Print each student’s name and score. <br> 4. Close the file once all lines are processed.`,
+            question: `In the School of Excellence, teachers need to review the latest test scores for each student. The scores are stored in a file named 'grades.csv' , where each line contains a student's name and score. Write a program to read each student’s name and score, and display them for review. <br> Instructions to perform the exercise: <br> 1. Open the file 'grades.csv' in read mode. <br> 2. Loop through each line, splitting it by a comma to separate the name and score.  <br> 3. Print each student’s name and score. <br> 4. Close the file once all lines are processed.`,
             status: false,
           },
           {
@@ -123,19 +123,19 @@ const Lessons = {
           {
             id: 1,
             title: "Student Registration: Recording New Students",
-            question: `At the School of Excellence, new students are being enrolled for the upcoming semester. Each student’s name and assigned student ID are stored in a file named 'students.csv' . Write a program that adds a new student’s name and ID to this file. <br> Instructions to perform the exercise: <br> 1. Define variables 'new_name' and 'new_id' for the student’s name and ID. <br> 2. Open the file 'students.csv' in append mode. <br> 3. Use 'file .write()' with an f-string to format the new student’s name and ID, separated by a comma. <br> 4. Close the file after adding the entry.`,
+            question: `At the School of Excellence, new students are being enrolled for the upcoming semester. Each student’s name and assigned student ID are stored in a file named 'students.csv' . Write a program that adds a new student’s name and ID to this file. <br> Instructions to perform the exercise: <br> 1. Define variables 'new_name' and 'new_id' for the student’s name and ID. <br> 2. Open the file 'students.csv' in append mode. <br> 3. Use 'file.write()' with an f-string to format the new student’s name and ID, separated by a comma. <br> 4. Close the file after adding the entry.`,
             status: false,
           },
           {
             id: 2,
             title: "Task Tracker: Logging Completed Tasks",
-            question: `In the Task Manager app, users can log completed tasks to keep track of their productivity. Each entry includes the task name and time taken (in minutes). Write a program that adds a new completed task and the time taken to 'tasks.csv' . <br> Instructions to perform the exercise: <br>  1. Define variables 'task_name' and 'time_taken' for the task and its duration. <br> 2. Open the file 'tasks.csv' in append mode. <br> 3. Use 'file.write()' with an f-string to write the task name and time taken, separated by a comma. <br> 4. Close the file after adding the new task entry .`,
+            question: `In the Task Manager app, users can log completed tasks to keep track of their productivity. Each entry includes the task name and time taken (in minutes). Write a program that adds a new completed task and the time taken to 'tasks.csv' . <br> Instructions to perform the exercise: <br>  1. Define variables 'task_name' and 'time_taken' for the task and its duration. <br> 2. Open the file 'tasks.csv' in append mode. <br> 3. Use 'file.write()' with an f-string to write the task name and time taken, separated by a comma. <br> 4. Close the file after adding the new task entry.`,
             status: false,
           },
           {
             id: 3,
             title: "Adventure Log: Recording Quest Progress",
-            question: `In the world of Fantasy Quest, adventurers keep a log of completed quests. Each log entry includes the adventurer's name and the quest title. Write a program that adds a new quest entry to 'adventure_log.csv' whenever a quest is completed. <br> Instructions to perform the exercise: <br> 1. Define variables 'adventurer_name' and 'quest_title' for the name and completed quest . <br> 2. Open the file 'adventure_log.csv' in append mode. <br> 3. Use 'file.write()' with an f-string to write the adventurer’s name and quest title, separated by a comma. <br> 4. Close the file after adding the quest entry.`,
+            question: `In the world of Fantasy Quest, adventurers keep a log of completed quests. Each log entry includes the adventurer's name and the quest title. Write a program that adds a new quest entry to 'adventure_log.csv' whenever a quest is completed. <br> Instructions to perform the exercise: <br> 1. Define variables 'adventurer_name' and 'quest_title' for the name and completed quest. <br> 2. Open the file 'adventure_log.csv' in append mode. <br> 3. Use 'file.write()' with an f-string to write the adventurer’s name and quest title, separated by a comma. <br> 4. Close the file after adding the quest entry.`,
             status: false,
           },
         ],
@@ -199,7 +199,7 @@ const Lessons = {
           {
             id: 3,
             title: "Mythical Creatures Database: Creating a Creatures Table",
-            question: `In the Academy of Mythical Studies, researchers are cataloging sightings of mythical creatures worldwide. They need a table to store each creature’s name, type (e.g., dragon, phoenix), habitat (forest, mountain, etc .), and estimated age. <br> Instructions to perform the exercise: <br> 1. Use 'CREATE' 'TABLE' to define a table named 'creatures' . <br> 2. Define columns for 'creature_name' (TEXT), 'creature_type' (TEXT), 'habitat' (TEXT), and 'estimated_age' (INTEGER).`,
+            question: `In the Academy of Mythical Studies, researchers are cataloging sightings of mythical creatures worldwide. They need a table to store each creature’s name, type (e.g., dragon, phoenix), habitat (forest, mountain, etc.), and estimated age. <br> Instructions to perform the exercise: <br> 1. Use 'CREATE' 'TABLE' to define a table named 'creatures' . <br> 2. Define columns for 'creature_name' (TEXT), 'creature_type' (TEXT), 'habitat' (TEXT), and 'estimated_age' (INTEGER).`,
             staus: false,
           },
         ],
@@ -247,7 +247,7 @@ const Lessons = {
           {
             id: 1,
             title: "Fantasy Kingdom: Recreating the Kingdom’s Creatures Table",
-            question: `In the Fantasy Kingdom Research Lab, mythical creature data was stored in a table named 'creatures' . Unfortunately, an error was discovered in the table design, requiring the table to be dropped and recreated with an additional column for habitat type. After recreating it, the 'habitat_type' column is added with the default value 'Unknown' . <br> Instructions to perform the exercise: <br> 1. Use 'DROP TABLE' to delete the existing 'creatures' table. <br> 2. Use 'CREATE' 'TABLE' to redefine the 'creatures' table with columns for 'creature_name' , 'creature_type' , and 'age' . <br> 3. Use 'ALTER' 'TABLE' to add a column 'habitat_type' with the default value 'Unknown' .`,
+            question: `In the Fantasy Kingdom Research Lab, mythical creature data was stored in a table named 'creatures' . Unfortunately, an error was discovered in the table design, requiring the table to be dropped and recreated with an additional column for habitat type. After recreating it, the 'habitat_type' column is added with the default value 'Unknown' . <br> Instructions to perform the exercise: <br> 1. Use 'DROP' 'TABLE' to delete the existing 'creatures' table. <br> 2. Use 'CREATE' 'TABLE' to redefine the 'creatures' table with columns for 'creature_name' , 'creature_type' , and 'age' . <br> 3. Use 'ALTER' 'TABLE' to add a column 'habitat_type' with the default value 'Unknown' .`,
             status: false,
           },
           {
@@ -294,7 +294,7 @@ const Lessons = {
           {
             id: 4,
             title: "Jungle Database: Retrieving Dangerous Animals Only",
-            question: `In the Tropical Jungle Conservation Program, staff need to retrieve records of dangerous animals in the 'jungle_animals' table . Dangerous animals have a 'danger_level' of 'high' . <br> Instructions to perform the exercise: <br> 1. Write a 'SELECT' '*' statement to retrieve all columns from the 'jungle_animals' table. <br> 2. Use 'WHERE' to filter for records where 'danger_level' is 'high' .`,
+            question: `In the Tropical Jungle Conservation Program, staff need to retrieve records of dangerous animals in the 'jungle_animals' table. Dangerous animals have a 'danger_level' of 'high' . <br> Instructions to perform the exercise: <br> 1. Write a 'SELECT' '*' statement to retrieve all columns from the 'jungle_animals' table. <br> 2. Use 'WHERE' to filter for records where 'danger_level' is 'high' .`,
             status: false,
           },
           {
@@ -365,13 +365,13 @@ const Lessons = {
           {
             id: 1,
             title: "Robot Missions Database: Adding New Robot Task Assignments",
-            question: `In the RoboMissions Program, every robot is assigned a specific mission role with a unique identifier. The table 'robot_tasks' logs each robot's 'robot_name' , 'task_role' , and 'battery_life' in percentage. Add a new entry for a robot named "XR-77," assigned as a "Surveyor" with '85.6' percent battery life remaining . <br> Instructions to perform the exercise: <br> 1. Use 'INSERT' 'INTO' to add a new entry to the 'robot_tasks' table, specifying column names 'robot_name' , 'task_role' , and 'battery_life' . <br> 2. Insert values for 'robot_name' ( 'XR-77' ), 'task_role' ( 'Surveyor' ), and 'battery_life' ( '85.6' ).`,
+            question: `In the RoboMissions Program, every robot is assigned a specific mission role with a unique identifier. The table 'robot_tasks' logs each robot's 'robot_name' , 'task_role' , and 'battery_life' in percentage. Add a new entry for a robot named "XR-77," assigned as a "Surveyor" with '85.6' percent battery life remaining. <br> Instructions to perform the exercise: <br> 1. Use 'INSERT' 'INTO' to add a new entry to the 'robot_tasks' table, specifying column names 'robot_name' , 'task_role' , and 'battery_life' . <br> 2. Insert values for 'robot_name' ( 'XR-77' ), 'task_role' ( 'Surveyor' ), and 'battery_life' ( '85.6' ).`,
             status: false,
           },
           {
             id: 2,
             title: "Spacecraft Supplies Database: Adding Cargo Information",
-            question: `In the Interstellar Fleet Command, each spacecraft carries a specific load of essential supplies. The 'cargo_inventory' table records the 'item_name' , 'category' , and 'weight_kilograms' of each supply item. Add a new record for a cargo item "Oxygen Tank" categorized under "Life Support" with a weight of '120.5' kilograms. <br> Instructions to perform the exercise: <br>  1. Use 'INSERT' 'INTO' to add a new record to the 'cargo_inventory' table, specifying columns 'item_name' , 'category' , and 'weight_kilograms' . <br>  2. Insert values for 'item_name' ( 'Oxygen Tank' ), 'category' ('Life Support'), and 'weight_kilograms' ( '120.5' ).`,
+            question: `In the Interstellar Fleet Command, each spacecraft carries a specific load of essential supplies. The 'cargo_inventory' table records the 'item_name' , 'category' , and 'weight_kilograms' of each supply item. Add a new record for a cargo item "Oxygen Tank" categorized under "Life Support" with a weight of '120.5' kilograms. <br> Instructions to perform the exercise: <br>  1. Use 'INSERT' 'INTO' to add a new record to the 'cargo_inventory' table, specifying columns 'item_name' , 'category' , and 'weight_kilograms' . <br>  2. Insert values for 'item_name' ( 'Oxygen Tank' ), 'category' ( 'Life' 'Support' ), and 'weight_kilograms' ( '120.5' ).`,
             status: false,
           },
         ],
@@ -383,7 +383,7 @@ const Lessons = {
           {
             id: 1,
             title: "Robot Missions Database: Adding Multiple Robots",
-            question: `In the Galactic Robo-Missions Program, new robots are frequently added to the mission roster. The 'robot_tasks' table tracks each robot's name, mission role, and battery life percentage . The lab needs to add three new robots: "Zeta-21" as a "Scout" with 90 .1% battery life, "Rover-X9" as a "Miner" with 76 .3% battery life, and "Titan-88" as a "Transporter" with 65.4% battery life. <br> Instructions to perform the exercise: <br> 1. Use 'INSERT' 'INTO' to add multiple records to the 'robot_tasks' table, specifying the columns 'robot_name' , 'task_role' , and 'battery_life' . <br> 2. Insert values for each robot's name, role, and battery life in a single command.`,
+            question: `In the Galactic Robo-Missions Program, new robots are frequently added to the mission roster. The 'robot_tasks' table tracks each robot's name, mission role, and battery life percentage. The lab needs to add three new robots: "Zeta-21" as a "Scout" with 90.1% battery life, "Rover-X9" as a "Miner" with 76.3% battery life, and "Titan-88" as a "Transporter" with 65.4% battery life. <br> Instructions to perform the exercise: <br> 1. Use 'INSERT' 'INTO' to add multiple records to the 'robot_tasks' table, specifying the columns 'robot_name' , 'task_role' , and 'battery_life' . <br> 2. Insert values for each robot's name, role, and battery life in a single command.`,
             status: false,
           },
           {
@@ -407,7 +407,7 @@ const Lessons = {
           {
             id: 2,
             title: "Robot Database: Updating a Robot’s Mission Role",
-            question: `In the Robotic Exploration Program, certain robots are occasionally reassigned to new roles based on mission needs. The robot with 'robot_id' '=' '2' in the 'robots' table needs to have its 'mission_role' updated to 'Reconnaissance' to better suit the current exploration objectives. <br> Instructions to perform the exercise: <br> 1. Use 'UPDATE' to modify the 'mission_role' column of a specific record in the 'robots' table . <br> 2. Use 'SET' to assign the new role 'Reconnaissance' . <br> 3. Use 'WHERE' to specify the condition 'robot_id' '=' '2' .`,
+            question: `In the Robotic Exploration Program, certain robots are occasionally reassigned to new roles based on mission needs. The robot with 'robot_id' '=' '2' in the 'robots' table needs to have its 'mission_role' updated to 'Reconnaissance' to better suit the current exploration objectives. <br> Instructions to perform the exercise: <br> 1. Use 'UPDATE' to modify the 'mission_role' column of a specific record in the 'robots' table. <br> 2. Use 'SET' to assign the new role 'Reconnaissance' . <br> 3. Use 'WHERE' to specify the condition 'robot_id' '=' '2' .`,
             status: false,
           },
         ],
@@ -442,7 +442,7 @@ const Lessons = {
           {
             id: 1,
             title: "Displaying Artifact Collection",
-            question: `In the Atlantis Artifact Repository, archaeologists frequently need to view all artifact details stored in the 'artifact_collection' table. The function 'show_artifacts()' will retrieve and display the data whenever the user inputs '1' as a command, providing quick access to the entire collection. <br> Instructions to perform the exercise: <br> 1. Define a function 'show_artifacts()' to retrieve all rows from the 'artifact_collection' table using  'SELECT' '*' . <br> 2. Use 'cursor.execute()' to execute the SQL statement and 'cursor.fetchall()' to retrieve the data. <br> 3 . Loop through the results and print each artifact record. <br> 4. Set up an infinite loop and call 'show_artifacts()' if the command is '1' .`,
+            question: `In the Atlantis Artifact Repository, archaeologists frequently need to view all artifact details stored in the 'artifact_collection' table. The function 'show_artifacts()' will retrieve and display the data whenever the user inputs '1' as a command, providing quick access to the entire collection. <br> Instructions to perform the exercise: <br> 1. Define a function 'show_artifacts()' to retrieve all rows from the 'artifact_collection' table using  'SELECT' '*' . <br> 2. Use 'cursor.execute()' to execute the SQL statement and 'cursor.fetchall()' to retrieve the data. <br> 3. Loop through the results and print each artifact record. <br> 4. Set up an infinite loop and call 'show_artifacts()' if the command is '1' .`,
             status: false,
           },
           {
@@ -526,7 +526,7 @@ const Lessons = {
           {
             id: 1,
             title: "Assigning Restoration Experts to Pyramids",
-            question: `In the Ancient Pyramids Preservation Society, each pyramid is periodically assigned a restoration expert to maintain its structure. The 'pyramids' table needs an 'expert_id' column to reference 'expert_id' in the 'restoration_experts' table . Once the column is added, the 'expert_id' for the pyramid with 'pyramid_id 1' should be set to '1' , and 'expert_id' for all pyramids with 'pyramid_id' '>=' '2' should be set to '2' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'expert_id' column to 'pyramids' , referencing 'expert_id' in 'restoration_experts' . <br> 2. Use 'UPDATE' to set 'expert_id' '=' '1' for the pyramid with 'pyramid_id' '=' '1' . <br> 3. Use another 'UPDATE' to set 'expert_id' '=' '2' for all pyramids with 'pyramid_id' '>=' '2' .`,
+            question: `In the Ancient Pyramids Preservation Society, each pyramid is periodically assigned a restoration expert to maintain its structure. The 'pyramids' table needs an 'expert_id' column to reference 'expert_id' in the 'restoration_experts' table. Once the column is added, the 'expert_id' for the pyramid with 'pyramid_id 1' should be set to '1' , and 'expert_id' for all pyramids with 'pyramid_id' '>=' '2' should be set to '2' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'expert_id' column to 'pyramids' , referencing 'expert_id' in 'restoration_experts' . <br> 2. Use 'UPDATE' to set 'expert_id' '=' '1' for the pyramid with 'pyramid_id' '=' '1' . <br> 3. Use another 'UPDATE' to set 'expert_id' '=' '2' for all pyramids with 'pyramid_id' '>=' '2' .`,
             status: false,
           },
           {
@@ -556,7 +556,7 @@ const Lessons = {
           {
             id: 2,
             title: "Listing Pharaohs, Pyramids, and Architects",
-            question: `In the Ancient Egyptian Archives, historians track which pharaohs were entombed in specific pyramids and who designed each pyramid. This information is spread across the 'pharaohs' , 'pyramids' , and 'architects' tables. Use a query that joins these tables to display 'pharaoh_name' , 'pyramid_name' , and 'architect_name' for each pyramid . <br> Instructions to perform the exercise: <br> 1. Use 'JOIN' to connect the 'pharaohs' , 'pyramids' , and 'architects' 'tables' , linking 'pharaoh_id' and 'architect_id' with 'USING' . <br> 2. Write a 'SELECT' statement to display 'pharaoh_name' , 'pyramid_name' , and 'architect_name' for each record.`,
+            question: `In the Ancient Egyptian Archives, historians track which pharaohs were entombed in specific pyramids and who designed each pyramid. This information is spread across the 'pharaohs' , 'pyramids' , and 'architects' tables. Use a query that joins these tables to display 'pharaoh_name' , 'pyramid_name' , and 'architect_name' for each pyramid. <br> Instructions to perform the exercise: <br> 1. Use 'JOIN' to connect the 'pharaohs' , 'pyramids' , and 'architects' 'tables' , linking 'pharaoh_id' and 'architect_id' with 'USING' . <br> 2. Write a 'SELECT' statement to display 'pharaoh_name' , 'pyramid_name' , and 'architect_name' for each record.`,
             status: false,
           },
           {
@@ -586,7 +586,7 @@ const Lessons = {
             id: 2,
             title:
               "Galactic Database: Ordering Asteroids by Closest Approach to Civilizations",
-            question: `In the Alliance of Cosmic Observers, astronomers from various interstellar civilizations track asteroids’ proximity to inhabited planets. The 'asteroids' table records the 'miss_distance' of each asteroid. Use a query to display all asteroid records, ordered by their closest approach distance ('miss_distance') to prioritize monitoring . <br> Instructions to perform the exercise: <br> 1. Use 'SELECT' '*' to retrieve all columns from the 'asteroids' table. <br> 2. Use 'ORDER BY' to sort the results by 'miss_distance' in ascending order.`,
+            question: `In the Alliance of Cosmic Observers, astronomers from various interstellar civilizations track asteroids’ proximity to inhabited planets. The 'asteroids' table records the 'miss_distance' of each asteroid. Use a query to display all asteroid records, ordered by their closest approach distance ( 'miss_distance' ) to prioritize monitoring. <br> Instructions to perform the exercise: <br> 1. Use 'SELECT' '*' to retrieve all columns from the 'asteroids' table. <br> 2. Use 'ORDER BY' to sort the results by 'miss_distance' in ascending order.`,
             status: false,
           },
           {

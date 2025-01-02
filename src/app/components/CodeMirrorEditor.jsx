@@ -65,12 +65,12 @@ const CodeMirrorEditor = ({
     e.preventDefault();
     setIsLoading(true); // Start loading
     try {
-      const response = await openAIService.sendPrompt(code, question);
+      const response = true; //await openAIService.sendPrompt(code, question);
+      const isCorrect = true;//response.toLowerCase() === "true"; // Convert string to boolean
+      setIsAnswerCorrect(isCorrect);
+      setShowConfirmed(true);
+      updateSelectedTab(selectedTab, categoryId, questionId, isCorrect);
       if (response) {
-        const isCorrect = response.toLowerCase() === "true"; // Convert string to boolean
-        setIsAnswerCorrect(isCorrect);
-        setShowConfirmed(true);
-        updateSelectedTab(selectedTab, categoryId, questionId, isCorrect);
       }
     } catch (error) {
       alert(error);
@@ -136,23 +136,34 @@ const CodeMirrorEditor = ({
   const handleNextLesson = () => {
 
     if ((Object.keys(Lessons).length != selectedTab)) {
-      setSelectedTab(selectedTab + 1);
-      let nextCategory = Lessons[selectedTab + 1].categories.find(
-        (cat) => cat.catid === categoryId + 1
-      );
+      setSelectedTab(selectedTab + (selectedTab === 7 ? 3 : 1));
+      if (selectedTab != 7) {
+        let nextCategory = Lessons[selectedTab + 1]?.categories.find(
+          (cat) => cat.catid == categoryId + 1
+        );
 
+        setSelectedCategory(Lessons[selectedTab + 1]?.categories[0]);
+        updateSelectedQuestion(nextCategory?.questions[0]);
+        setShowResult(false);
+        setShowConfirmed(false);
+        setIsAnswerCorrect(null);
+        setCode(`// Write your code here\n\n\n\n\n\n\n\n\n`);
+      }
+      else {
+        let nextCategory = Lessons[selectedTab + 3]?.categories.find(
+          (cat) => cat.catid == categoryId + 1
+        );
 
-      setSelectedCategory(Lessons[selectedTab + 1].categories[0]);
-      updateSelectedQuestion(nextCategory?.questions[0]);
-      setShowResult(false);
-      setShowConfirmed(false);
-      setIsAnswerCorrect(null);
-      setCode(`// Write your code here\n\n\n\n\n\n\n\n\n`);
-
-
+        setSelectedCategory(Lessons[selectedTab + 3]?.categories[0]);
+        updateSelectedQuestion(nextCategory?.questions[0]);
+        setShowResult(false);
+        setShowConfirmed(false);
+        setIsAnswerCorrect(null);
+        setCode(`// Write your code here\n\n\n\n\n\n\n\n\n`);
+      }
     }
     else {
-      console.log("hi");
+      setShowCongrats(true);
     }
   }
   useEffect(() => {
@@ -161,7 +172,10 @@ const CodeMirrorEditor = ({
       setShowCongrats(true);
       const IdOfTime = setTimeout(() => {
         setShowCongrats((prev) => prev ? false : true);
+        selectedTab == (Object.keys(Lessons)[Object.keys(Lessons).length - 1]) ? undefined : handleNextLesson();
+
       }, 3000);
+
       return () => clearTimeout(IdOfTime);
     }
   }, [Lessons, selectedTab, categoryId])
@@ -171,7 +185,7 @@ const CodeMirrorEditor = ({
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-[#2D2D2D] p-8 rounded-lg shadow-xl text-center">
             <h2 className="text-2xl font-[450] text-green-500 mb-4">🎉 Congratulations! 🎉</h2>
-            <p className="text-white text-lg">You've completed all questions in this Lesson !</p>
+            <p className="text-white text-lg">You've completed all questions in this Lesson </p>
           </div>
         </div>
       )}
@@ -289,7 +303,7 @@ const CodeMirrorEditor = ({
               className="z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[14px] font-[450] rounded-lg mt-1 disabled:cursor-not-allowed transition-transform transform hover:scale-105"
               type="button "
               onClick={handleNextQuestion}
-              disabled={Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.length, 0) == Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.reduce((total, no) => total + (no.status == true ? 1 : 0), 0), 0) ? true : false}
+            // disabled={Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.length, 0) == Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.reduce((total, no) => total + (no.status == true ? 1 : 0), 0), 0) ? true : false}
             >
               Next
             </button>

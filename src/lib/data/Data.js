@@ -81,7 +81,7 @@ const Lessons = {
           {
             id: 1,
             title: "Secret Messages: Calculate Encrypted Message Size",
-            question: `In a top-secret agency, encrypted messages are recorded for each mission. To ensure efficiency, only the size of the message text is stored, excluding any file overhead. Write a program to calculate the size of the actual message text for record-keeping. <br> Instructions to perform the exercise: <br> 1. Define a function 'get_str_size(var)' that calculates and prints only the text size by subtracting the size of an empty string. <br> 2. Use 'input()' to ask for a new encrypted message and calculate its text size. <br> 3. Print the message text size using the format '"🕵️ Message text data: [bytes] bytes"'.`,
+            question: `In a top-secret agency, encrypted messages are recorded for each mission. To ensure efficiency, only the size of the message text is stored, excluding any file overhead. Write a program to calculate the size of the actual message text for record-keeping. <br> Instructions to perform the exercise: <br> 1. Define a function 'get_str_size(var)' that calculates and prints only the text size by subtracting the size of an empty string. <br> 2. Use 'input()' to ask for a new encrypted message and calculate its text size. <br> 3. Print the message text size using the format '"🕵️ Message text data: [bytes] bytes"' .`,
             imageSrc: "/L1-C4-Q1.png",
             status: false,
           },
@@ -199,7 +199,7 @@ const Lessons = {
           {
             id: 3,
             title: "Mythical Creatures Database: Creating a Creatures Table",
-            question: `In the Academy of Mythical Studies, researchers are cataloging sightings of mythical creatures worldwide. They need a table to store each creature’s name, type (e.g., dragon, phoenix), habitat (forest, mountain, etc .), and estimated age. <br> Instructions to perform the exercise: <br> 1. Use 'CREATE' 'TABLE' to define a table named 'creatures'. <br> 2. Define columns for 'creature_name' (TEXT), 'creature_type' (TEXT), 'habitat' (TEXT), and 'estimated_age' (INTEGER).`,
+            question: `In the Academy of Mythical Studies, researchers are cataloging sightings of mythical creatures worldwide. They need a table to store each creature’s name, type (e.g., dragon, phoenix), habitat (forest, mountain, etc .), and estimated age. <br> Instructions to perform the exercise: <br> 1. Use 'CREATE' 'TABLE' to define a table named 'creatures' . <br> 2. Define columns for 'creature_name' (TEXT), 'creature_type' (TEXT), 'habitat' (TEXT), and 'estimated_age' (INTEGER).`,
             staus: false,
           },
         ],
@@ -460,7 +460,7 @@ const Lessons = {
           {
             id: 1,
             title: "Reactivating Ancient Defense Systems",
-            question: `In the Atlantis Security Center, engineers are tasked with reactivating defense systems to safeguard Atlantis. The 'defense_systems' table logs each system's status and priority level. The 'activate_defenses()' function will set all systems with 'priority' '=' 'backup' to 'online' status whenever the command '2' is entered. <br> Instructions to perform the exercise: <br> 1. Define a function 'activate_defenses()' that updates all rows in the 'defense_systems' table where 'priority' is 'backup' , setting 'status' to 'online'. <br> 2. Use 'cursor.execute()' to execute the 'UPDATE' statement, followed by a confirmation message printout. <br> 3. Set up an infinite loop, and call 'activate_defenses()' if the command is '2' .`,
+            question: `In the Atlantis Security Center, engineers are tasked with reactivating defense systems to safeguard Atlantis. The 'defense_systems' table logs each system's status and priority level. The 'activate_defenses()' function will set all systems with 'priority' '=' 'backup' to 'online' status whenever the command '2' is entered. <br> Instructions to perform the exercise: <br> 1. Define a function 'activate_defenses()' that updates all rows in the 'defense_systems' table where 'priority' is 'backup' , setting 'status' to 'online' . <br> 2. Use 'cursor.execute()' to execute the 'UPDATE' statement, followed by a confirmation message printout. <br> 3. Set up an infinite loop, and call 'activate_defenses()' if the command is '2' .`,
             status: false,
           },
           {

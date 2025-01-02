@@ -10,9 +10,9 @@ const Card = ({ imageSrc, imageAlt, description, updateLessons, selectedTab, cat
           <Image src={imageSrc} alt={imageAlt} width={80} height={80} /> {/* Use number for width and height */}
         </div>
         <div className="flex flex-col gap-y-2.5 ">
-          <span className="text-[14px] font-semibold text-[#ffffff]">{Lessons[selectedTab].categories[categoryId - 1].questions[queId - 1].title}</span>
+          <span className="text-[14px]  text-[#ffffff] font-[450] italic">{Lessons[selectedTab].categories[categoryId - 1].questions[queId - 1].title}</span>
           <div className="flex flex-col gap-4 px-5 py-4 bg-[#FFFFFF1A] rounded-tr-[15px] rounded-br-[15px] rounded-bl-[15px] relative ">
-            <span className="text-[14px] font-[390] leading-6 text-[#ffffff]" >
+            <span className="text-[14px] font-[390] leading-6 text-[#ffffff] " >
               {
                 description?.split(' ').map((line, index) =>
                   line == "<br>" ? (<br></br>) : line?.startsWith("'") && line?.endsWith("'") ? (<span style={{ color: "#bb0000", fontFamily: "monospace" }}>{" " + line.split('').filter((line) => line != "'").join("")}</span>) : <span>{" " + line}</span>

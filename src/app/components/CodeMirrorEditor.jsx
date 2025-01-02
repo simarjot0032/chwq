@@ -65,12 +65,12 @@ const CodeMirrorEditor = ({
     e.preventDefault();
     setIsLoading(true); // Start loading
     try {
-      const response = true;//await openAIService.sendPrompt(code, question);
-      const isCorrect = true;//response.toLowerCase() === "true"; // Convert string to boolean
-      setIsAnswerCorrect(isCorrect);
-      setShowConfirmed(true);
-      updateSelectedTab(selectedTab, categoryId, questionId, isCorrect);
+      const response = await openAIService.sendPrompt(code, question);
       if (response) {
+        const isCorrect = response.toLowerCase() === "true"; // Convert string to boolean
+        setIsAnswerCorrect(isCorrect);
+        setShowConfirmed(true);
+        updateSelectedTab(selectedTab, categoryId, questionId, isCorrect);
       }
     } catch (error) {
       alert(error);
@@ -170,7 +170,7 @@ const CodeMirrorEditor = ({
       {showCongrats && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-[#2D2D2D] p-8 rounded-lg shadow-xl text-center">
-            <h2 className="text-2xl font-bold text-green-500 mb-4">🎉 Congratulations! 🎉</h2>
+            <h2 className="text-2xl font-[450] text-green-500 mb-4">🎉 Congratulations! 🎉</h2>
             <p className="text-white text-lg">You've completed all questions in this Lesson !</p>
           </div>
         </div>
@@ -220,7 +220,7 @@ const CodeMirrorEditor = ({
             }
           `}</style>
           <button
-            className="absolute bottom-3 right-4 z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[#333333] text-[13px] font-semibold rounded-lg transition-transform transform hover:scale-105"
+            className="absolute bottom-3 right-4 z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[#333333] text-[14px] font-semibold rounded-lg transition-transform transform hover:scale-105 tracking-[1px]"
             type="submit"
             onClick={handleSubmit}
             disabled={isLoading}
@@ -247,18 +247,18 @@ const CodeMirrorEditor = ({
         (isAnswerCorrect ? (
           <>
             <Image width={200} height={200} layout="fit" src={"/answerRight.png"} alt="conguralation image" />
-            <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-normal w-full sm:w-8/12">
+            <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-[390] w-full sm:w-8/12">
               Congratulations 🎉, your code worked successfully!{" "}
             </div>
             <Image width={25} height={25} src={imageSrc} alt="profile-icon" />
 
           </>
         ) : (
-          <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-normal w-full sm:w-8/12">
+          <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-[390] w-full sm:w-8/12">
             Oops! 😅 There's a mistake in the code. Try again—you've got this!
             💪{" "}
             <button
-              className="z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[13px] font-semibold rounded-lg mt-1"
+              className="z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[14px] font-[450]  rounded-lg mt-1 "
               type="button"
               onClick={resetQuestion}
             >
@@ -286,8 +286,8 @@ const CodeMirrorEditor = ({
             </div>
 
             <button
-              className="z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[13px] font-semibold rounded-lg mt-1 disabled:cursor-not-allowed transition-transform transform hover:scale-105"
-              type="button"
+              className="z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[14px] font-[450] rounded-lg mt-1 disabled:cursor-not-allowed transition-transform transform hover:scale-105"
+              type="button "
               onClick={handleNextQuestion}
               disabled={Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.length, 0) == Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.reduce((total, no) => total + (no.status == true ? 1 : 0), 0), 0) ? true : false}
             >

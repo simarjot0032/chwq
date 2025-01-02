@@ -5,6 +5,7 @@ import LessonsData from "../lib/data/Data";
 import Danger from "./components/Svg/Danger";
 import GreenTick from "./components/Svg/GreenTick";
 import Lock from "./components/Svg/Lock";
+import "./Fonts.css";
 
 export default function VerticalTabs() {
   const [Lessons, setLessons] = useState(LessonsData);
@@ -70,7 +71,7 @@ export default function VerticalTabs() {
                 }`}
                 // disabled={!canEnableTab(lesson.index)} // Disable button if previous lesson is not passed
               >
-                <div className="flex flex-row justify-start gap-2 w-full">
+                <div className="flex flex-row justify-start gap-2 w-full font-[390] text-[18px]">
                   {/* Show icons based on lesson state */}
                   {selectedTab === lesson.index ? (
                     !lesson.passed ? (

@@ -253,7 +253,7 @@ const Lessons = {
           {
             id: 2,
             title: "Spy Agency Database: Resetting Agent Records",
-            question: `In the Global Spy Agency, agents’ data is stored in a table named 'agents' . For security reasons, the agency must occasionally delete all agent records and recreate the table structure. After creating the table, an additional column for 'clearance_level' is added with a default level of '1' . <br> Instructions to perform the exercise: <br> 1. Use 'DROP ''TABLE' to delete the existing 'agents' table. <br> 2. Use 'CREATE' 'TABLE' to redefine the 'agents' table with columns for 'agent_name', 'mission', and  'experience_years' . <br> 3. Use 'ALTER' 'TABLE' to add a 'clearance_level' column with a default value of '1' .`,
+            question: `In the Global Spy Agency, agents’ data is stored in a table named 'agents' . For security reasons, the agency must occasionally delete all agent records and recreate the table structure. After creating the table, an additional column for 'clearance_level' is added with a default level of '1' . <br> Instructions to perform the exercise: <br> 1. Use 'DROP' 'TABLE' to delete the existing 'agents' table. <br> 2. Use 'CREATE' 'TABLE' to redefine the 'agents' table with columns for 'agent_name' , 'mission' , and  'experience_years' . <br> 3. Use 'ALTER' 'TABLE' to add a 'clearance_level' column with a default value of '1' .`,
             status: false,
           },
           {
@@ -401,13 +401,13 @@ const Lessons = {
           {
             id: 1,
             title: "Robot Database: Removing Retired Robots from the Roster",
-            question: `In the Advanced Robotics Lab, robots that are no longer functional are retired from the active roster. The lab needs to remove a robot with 'robot_id=4' from the 'robots' table as it’s been decommissioned and is no longer part of the fleet. <br> Instructions to perform the exercise: <br> 1. Use 'DELETE' 'FROM' to remove a specific record from the 'robots' table. <br> 2. Use 'WHERE' to specify the condition 'robot_id' '=' '4' .`,
+            question: `In the Advanced Robotics Lab, robots that are no longer functional are retired from the active roster. The lab needs to remove a robot with 'robot_id' '=' '4' from the 'robots' table as it’s been decommissioned and is no longer part of the fleet. <br> Instructions to perform the exercise: <br> 1. Use 'DELETE' 'FROM' to remove a specific record from the 'robots' table. <br> 2. Use 'WHERE' to specify the condition 'robot_id' '=' '4' .`,
             status: false,
           },
           {
             id: 2,
             title: "Robot Database: Updating a Robot’s Mission Role",
-            question: `In the Robotic Exploration Program, certain robots are occasionally reassigned to new roles based on mission needs. The robot with 'robot_id' '=' '2' in the 'robots' table needs to have its 'mission_role' updated to 'Reconnaissance' to better suit the current exploration objectives. <br> Instructions to perform the exercise: <br> 1. Use 'UPDATE' to modify the 'mission_role' column of a specific record in the 'robots' table . <br> 2. Use 'SET' to assign the new role 'Reconnaissance' . <br> 3. Use 'WHERE' to specify the condition 'robot_id=2' .`,
+            question: `In the Robotic Exploration Program, certain robots are occasionally reassigned to new roles based on mission needs. The robot with 'robot_id' '=' '2' in the 'robots' table needs to have its 'mission_role' updated to 'Reconnaissance' to better suit the current exploration objectives. <br> Instructions to perform the exercise: <br> 1. Use 'UPDATE' to modify the 'mission_role' column of a specific record in the 'robots' table . <br> 2. Use 'SET' to assign the new role 'Reconnaissance' . <br> 3. Use 'WHERE' to specify the condition 'robot_id' '=' '2' .`,
             status: false,
           },
         ],
@@ -502,7 +502,7 @@ const Lessons = {
           {
             id: 1,
             title: "Linking Artifacts with Pyramid Sites",
-            question: `In the Pyramid Archaeology Center, researchers document artifacts found at different pyramid sites. They want to link the 'pyramid_sites' table to the 'artifacts' table by adding an 'artifact_id' column in 'pyramid_sites' , which references 'artifact_id' in 'artifacts' . Then, they will update 'pyramid_sites' to assign 'artifact_id = 3' to 'site_id = 1' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'artifact_id' column to 'pyramid_sites', referencing 'artifact_id' in the 'artifacts' table. <br> 2. Use 'UPDATE' to set 'artifact_id=3' in 'pyramid_sites' for the record where 'site_id = 1' .`,
+            question: `In the Pyramid Archaeology Center, researchers document artifacts found at different pyramid sites. They want to link the 'pyramid_sites' table to the 'artifacts' table by adding an 'artifact_id' column in 'pyramid_sites' , which references 'artifact_id' in 'artifacts' . Then, they will update 'pyramid_sites' to assign 'artifact_id = 3' to 'site_id = 1' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'artifact_id' column to 'pyramid_sites', referencing 'artifact_id' in the 'artifacts' table. <br> 2. Use 'UPDATE' to set 'artifact_id' '=' '3' in 'pyramid_sites' for the record where 'site_id = 1' .`,
             status: false,
           },
           {
@@ -514,7 +514,7 @@ const Lessons = {
           {
             id: 3,
             title: "Assigning Engineers to Pyramid Constructions",
-            question: `The Ancient Construction Records of Egypt detail engineers who oversaw pyramid constructions. The 'pyramids' table needs to be updated with an 'engineer_id' column to reference 'engineer_id' in the 'engineers' table. Once linked, the 'engineer_id' for the pyramid with 'pyramid_id=2' should be updated to '7' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'engineer_id' column to 'pyramids', referencing 'engineer_id' in the 'engineers' table. <br> 2. Use 'UPDATE' to set 'engineer_id = 7' in 'pyramids' where 'pyramid_id = 2' .`,
+            question: `The Ancient Construction Records of Egypt detail engineers who oversaw pyramid constructions. The 'pyramids' table needs to be updated with an 'engineer_id' column to reference 'engineer_id' in the 'engineers' table. Once linked, the 'engineer_id' for the pyramid with 'pyramid_id' '=' '2' should be updated to '7' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'engineer_id' column to 'pyramids', referencing 'engineer_id' in the 'engineers' table. <br> 2. Use 'UPDATE' to set 'engineer_id = 7' in 'pyramids' where 'pyramid_id = 2' .`,
             status: false,
           },
         ],
@@ -526,13 +526,13 @@ const Lessons = {
           {
             id: 1,
             title: "Assigning Restoration Experts to Pyramids",
-            question: `In the Ancient Pyramids Preservation Society, each pyramid is periodically assigned a restoration expert to maintain its structure. The 'pyramids' table needs an 'expert_id' column to reference 'expert_id' in the 'restoration_experts' table . Once the column is added, the 'expert_id' for the pyramid with 'pyramid_id 1' should be set to '1', and 'expert_id' for all pyramids with 'pyramid_id>=2' should be set to '2' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'expert_id' column to 'pyramids', referencing 'expert_id' in 'restoration_experts' . <br> 2. Use 'UPDATE' to set 'expert_id=1' for the pyramid with 'pyramid_id=1' . <br> 3. Use another 'UPDATE' to set 'expert_id = 2' for all pyramids with 'pyramid_id>=2' .`,
+            question: `In the Ancient Pyramids Preservation Society, each pyramid is periodically assigned a restoration expert to maintain its structure. The 'pyramids' table needs an 'expert_id' column to reference 'expert_id' in the 'restoration_experts' table . Once the column is added, the 'expert_id' for the pyramid with 'pyramid_id 1' should be set to '1', and 'expert_id' for all pyramids with 'pyramid_id' '>=' '2' should be set to '2' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'expert_id' column to 'pyramids', referencing 'expert_id' in 'restoration_experts' . <br> 2. Use 'UPDATE' to set 'expert_id' '=' '1' for the pyramid with 'pyramid_id' '=' '1' . <br> 3. Use another 'UPDATE' to set 'expert_id' '=' '2' for all pyramids with 'pyramid_id' '>=' '2' .`,
             status: false,
           },
           {
             id: 2,
             title: "Assigning Archaeologists to Excavation Sites",
-            question: `The Egyptian Archaeology Institute assigns archaeologists to manage different excavation sites. To organize this, they need to add an 'archaeologist_id' column to the 'excavation_sites' table, referencing 'archaeologist_id' in archaeologists. Once added, they will set 'archaeologist_id' '=' '3' for the site with 'site_id=1' and 'archaeologist_id=4' for all sites with 'site_id>=2' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'archaeologist_id' column to 'excavation_sites' , referencing 'archaeologist_id' in 'archaeologists' . <br> 2. Use 'UPDATE' to set 'archaeologist_id' '=' '3' for the site with 'site_id' '=' '1' . <br> 3. Use another UPDATE to set 'archaeologist_id' '=' '4' for all sites with 'site_id> 2' .`,
+            question: `The Egyptian Archaeology Institute assigns archaeologists to manage different excavation sites. To organize this, they need to add an 'archaeologist_id' column to the 'excavation_sites' table, referencing 'archaeologist_id' in archaeologists. Once added, they will set 'archaeologist_id' '=' '3' for the site with 'site_id' '=' '1' and 'archaeologist_id' '=' '4' for all sites with 'site_id' '>=' '2' . <br> Instructions to perform the exercise: <br> 1. Use 'ALTER' 'TABLE' to add an 'archaeologist_id' column to 'excavation_sites' , referencing 'archaeologist_id' in 'archaeologists' . <br> 2. Use 'UPDATE' to set 'archaeologist_id' '=' '3' for the site with 'site_id' '=' '1' . <br> 3. Use another UPDATE to set 'archaeologist_id' '=' '4' for all sites with 'site_id> 2' .`,
             status: false,
           },
           {

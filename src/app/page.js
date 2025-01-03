@@ -2,9 +2,9 @@
 import { useState } from "react";
 import Test from "./components/Test/Test";
 import LessonsData from "../lib/data/Data";
-import Danger from "./components/Svg/Danger";
+import Hourglass from "./components/Svg/Hourglass";
 import Image from "next/image";
-import GreenTick from "./components/Svg/GreenTick";
+import Checkmark from "./components/Svg/Checkmark";
 import Lock from "./components/Svg/Lock";
 
 import "./Fonts.css";
@@ -72,21 +72,22 @@ export default function VerticalTabs() {
                 }`}
                 // disabled={!canEnableTab(lesson.index)} // Disable button if previous lesson is not passed
               >
-                <div className="flex flex-row justify-start gap-2 w-full font-[390] text-[18px]">
+                <div className="flex flex-row justify-start gap-2 w-full font-[390] text-[18px] items-center">
                   {/* Show icons based on lesson state */}
                   {lesson.index ? ( // add selectedTab=== for on state of lesson
                     !lesson.passed ? (
-                      <Image
-                        src="/hourglass.svg"
-                        width={25}
-                        height={25}
-                        alt="hourglass"
-                      />
+                      selectedTab == lesson.index ? (
+                        <Hourglass color={"gray"} />
+                      ) : (
+                        <Hourglass color={"white"} />
+                      )
+                    ) : selectedTab == lesson.index ? (
+                      <Checkmark color={"gray"} />
                     ) : (
-                      <GreenTick />
+                      <Checkmark color={"white"} />
                     )
                   ) : lesson.passed ? (
-                    <GreenTick />
+                    <Checkmark />
                   ) : undefined}
                   {/**  add lock when you wnat to lock lesson and enable the
                   disabled thing in top*/}

@@ -1,13 +1,78 @@
-import Image from "next/image";
-
 const Button = ({ iconAlt, text, isActive = false }) => {
   const buttonClass = isActive
-    ? "py-2 px-4 bg-[#FFFFFF1A] rounded-[15px] gap-1 transition flex flex-row justify-between tab-button text-[14px] font-semibold flex items-center text-[#FFFFFFF]"
+    ? "py-2 px-4 bg-[#FFFFFF1A] rounded-[15px] gap-1 transition flex flex-row justify-between tab-button text-[14px] font-semibold flex items-center text-[#FFFFFFF] "
     : "py-2 px-4 bg-[#FFFFFF1A] rounded-[15px] gap-1 transition flex flex-row justify-between tab-button text-[14px] font-semibold text-[#FFFFFF80] flex items-center";
 
   return (
-    <button className={buttonClass + " " + "transition-transform transform hover:scale-105"}>
-      <Image src={`/${iconAlt}.svg`} alt={iconAlt} width={24} height={24} />
+    <button
+      className={
+        buttonClass + " " + "transition-transform transform hover:scale-105"
+      }
+    >
+      {iconAlt == "docsIcon" ? (
+        <svg
+          width="25"
+          height="25"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.296 2.25H5.625C5.17745 2.25 4.74823 2.42779 4.43176 2.74426C4.11529 3.06072 3.9375 3.48995 3.9375 3.9375V14.0625C3.9375 14.5101 4.11529 14.9393 4.43176 15.2557C4.74823 15.5722 5.17745 15.75 5.625 15.75H12.375C12.8226 15.75 13.2518 15.5722 13.5682 15.2557C13.8847 14.9393 14.0625 14.5101 14.0625 14.0625V9M7.296 2.25C8.22825 2.25 9 3.00525 9 3.9375V5.625C9 6.07255 9.17779 6.50177 9.49426 6.81824C9.81073 7.13471 10.2399 7.3125 10.6875 7.3125H12.375C12.8226 7.3125 13.2518 7.49029 13.5682 7.80676C13.8847 8.12323 14.0625 8.55245 14.0625 9M7.296 2.25C10.0635 2.25 14.0625 6.27 14.0625 9"
+            stroke={`${isActive ? "#FFFFFF" : "#FFFFFF66"}`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M7.5 12.1815L8.27925 13.0673C8.3505 13.149 8.4795 13.1422 8.5425 13.0552L10.125 10.875"
+            stroke={`${isActive ? "#FFFFFF" : "#FFFFFF66"}`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ) : iconAlt == "helpIcon" ? (
+        <svg
+          width="25"
+          height="25"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11.6999 10.8915C9.90365 12.7815 5.3219 8.241 7.1249 6.3435C8.2259 5.18475 6.9824 3.861 6.2939 2.88675C5.00165 1.0605 2.1659 3.582 2.2514 5.18625C2.52365 10.2457 7.9964 16.2412 13.2959 15.7177C14.9534 15.5542 16.8584 12.5603 14.9564 11.466C14.0062 10.9185 12.7004 9.8385 11.6999 10.8907"
+            stroke={`${isActive ? "#FFFFFF" : "#FFFFFF66"}`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ) : iconAlt == "hintsIcon" ? (
+        <svg
+          width="25"
+          height="25"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 12V8.25H8.625M8.625 12H9.375M9 6.375V6"
+            stroke={`${isActive ? "#FFFFFF" : "#FFFFFF66"}`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M7.28497 2.73C7.72072 2.35875 7.93897 2.17275 8.16697 2.064C8.42715 1.93968 8.71186 1.87516 9.00022 1.87516C9.28858 1.87516 9.57328 1.93968 9.83347 2.064C10.0615 2.17275 10.2797 2.35875 10.7155 2.73C11.1647 3.1125 11.6207 3.306 12.2207 3.35325C12.7915 3.399 13.0772 3.42225 13.3157 3.50625C13.8662 3.70125 14.2997 4.134 14.494 4.68525C14.578 4.923 14.6012 5.20875 14.647 5.78025C14.6942 6.38025 14.887 6.8355 15.2695 7.28475C15.6415 7.7205 15.8275 7.93875 15.9362 8.16675C16.1882 8.694 16.1882 9.30675 15.9362 9.83325C15.8275 10.0612 15.6415 10.2795 15.2702 10.7152C14.8989 11.1325 14.6792 11.6629 14.647 12.2205C14.6012 12.7913 14.578 13.077 14.494 13.3155C14.3978 13.5874 14.242 13.8344 14.038 14.0383C13.834 14.2421 13.5869 14.3978 13.315 14.4938C13.0772 14.5778 12.7915 14.601 12.22 14.6467C11.62 14.694 11.1647 14.8867 10.7155 15.2692C10.2797 15.6412 10.0615 15.8272 9.83347 15.936C9.57328 16.0603 9.28858 16.1248 9.00022 16.1248C8.71186 16.1248 8.42715 16.0603 8.16697 15.936C7.93897 15.8272 7.72072 15.6413 7.28497 15.27C6.86774 14.8986 6.33734 14.679 5.77972 14.6467C5.20897 14.601 4.92322 14.5778 4.68472 14.4938C4.4128 14.3976 4.16584 14.2418 3.96196 14.0378C3.75808 13.8338 3.60245 13.5867 3.50647 13.3147C3.42247 13.077 3.39922 12.7912 3.35347 12.2197C3.32129 11.6625 3.10195 11.1323 2.73097 10.7152C2.35897 10.2795 2.17297 10.0612 2.06347 9.83325C1.93927 9.57301 1.87487 9.28827 1.875 8.99991C1.87513 8.71156 1.93978 8.42688 2.06422 8.16675C2.17297 7.93875 2.35897 7.7205 2.73022 7.28475C3.12022 6.8265 3.30697 6.3675 3.35347 5.7795C3.39922 5.20875 3.42247 4.923 3.50647 4.6845C3.60262 4.41258 3.75841 4.16563 3.96242 3.96175C4.16643 3.75787 4.41348 3.60223 4.68547 3.50625C4.92322 3.42225 5.20897 3.399 5.78047 3.35325C6.33775 3.32108 6.86787 3.10099 7.28497 2.73Z"
+            stroke={`${isActive ? "#FFFFFF" : "#FFFFFF66"}`}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ) : undefined}
+
       <span>{text}</span>
     </button>
   );

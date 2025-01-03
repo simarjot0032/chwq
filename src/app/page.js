@@ -3,8 +3,10 @@ import { useState } from "react";
 import Test from "./components/Test/Test";
 import LessonsData from "../lib/data/Data";
 import Danger from "./components/Svg/Danger";
+import Image from "next/image";
 import GreenTick from "./components/Svg/GreenTick";
 import Lock from "./components/Svg/Lock";
+
 import "./Fonts.css";
 
 export default function VerticalTabs() {
@@ -47,7 +49,6 @@ export default function VerticalTabs() {
     setSelectedCategory(Lessons[lessonIndex]?.categories[0]); // Reset selected category when switching lesson
     // }
   };
-  console.log(selectedCategory);
 
   return (
     <div className="h-max bg-black flex pt-10 gap-y-2.5 items-center justify-center mx-auto px-4">
@@ -73,15 +74,22 @@ export default function VerticalTabs() {
               >
                 <div className="flex flex-row justify-start gap-2 w-full font-[390] text-[18px]">
                   {/* Show icons based on lesson state */}
-                  {selectedTab === lesson.index ? (
+                  {lesson.index ? ( // add selectedTab=== for on state of lesson
                     !lesson.passed ? (
-                      <Danger />
+                      <Image
+                        src="/hourglass.svg"
+                        width={25}
+                        height={25}
+                        alt="hourglass"
+                      />
                     ) : (
                       <GreenTick />
                     )
                   ) : lesson.passed ? (
                     <GreenTick />
                   ) : undefined}
+                  {/**  add lock when you wnat to lock lesson and enable the
+                  disabled thing in top*/}
                   {lesson.title}
                 </div>
                 {/* Pill when Lesson is complete */}
@@ -101,7 +109,7 @@ export default function VerticalTabs() {
             lesson.index == selectedTab ? (
               <Test
                 key={index}
-                profileImage="/strikerIcon.png"
+                profileImage="/armypenguine.png"
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}
                 Lessons={Lessons}
@@ -131,8 +139,7 @@ export default function VerticalTabs() {
             onChange={(e) => {
               const lessonIndex = Number(e.target.value);
               // if (canEnableTab(lessonIndex)) {
-              setSelectedTab(lessonIndex);
-              setSelectedCategory(null);
+              handleTabChange(lessonIndex);
               // }
             }}
           >
@@ -140,7 +147,7 @@ export default function VerticalTabs() {
               <option
                 key={index}
                 value={lesson.index}
-                disabled={!canEnableTab(lesson.index)}
+                // disabled={!canEnableTab(lesson.index)} for testing purpose its commented out
               >
                 {lesson.title}
               </option>

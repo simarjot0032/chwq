@@ -84,7 +84,7 @@ const CodeMirrorEditor = ({
     setShowResult(false);
     setShowConfirmed(false);
     setIsAnswerCorrect(null);
-    setCode(`// Write your code here\n\n\n\n\n\n\n\n\n`);
+    setCode(`// Write your code here\n\n\n\n\n\n\n\n\n ${updatedCode ? updatedCode : ""} `);
   };
 
   const handleNextQuestion = () => {
@@ -104,7 +104,7 @@ const CodeMirrorEditor = ({
 
       if (nextUnansweredQuestion) {
         // There is another unanswered question in this category
-        console.log("Moving to next question in same category");
+
         setShowResult(false);
         setShowConfirmed(false);
         setIsAnswerCorrect(null);
@@ -210,7 +210,7 @@ const CodeMirrorEditor = ({
             onChange={(value) => {
               const updatedCode = String(value || ""); // Ensure value is always a string
               setCode(updatedCode);
-              console.log("Updated code:", updatedCode);
+
             }}
           />
           <style jsx global>{`
@@ -259,7 +259,7 @@ const CodeMirrorEditor = ({
         </div>
       )}
 
-      <Image width={48} height={48} src={imageSrc} alt="profile-icon" className="absolute right-[-5px] bottom-9 " />
+      <Image width={40} height={40} src={imageSrc} alt="profile-icon" className="absolute right-[3px] bottom-9 rounded-[50%]" />
 
       {showResult &&
         (isAnswerCorrect ? (
@@ -268,7 +268,7 @@ const CodeMirrorEditor = ({
             <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-[390] w-full sm:w-8/12">
               Congratulations 🎉, your code worked successfully!{" "}
             </div>
-            <Image width={25} height={25} src={imageSrc} alt="profile-icon" />
+            <Image width={25} height={25} src={imageSrc} alt="profile-icon" className="rounded-[50%]" />
 
           </>
         ) : (
@@ -280,7 +280,7 @@ const CodeMirrorEditor = ({
               type="button"
               onClick={resetQuestion}
             >
-              Reset
+              Retry
             </button>
           </div>
 

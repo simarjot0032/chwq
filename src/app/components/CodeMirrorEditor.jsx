@@ -217,6 +217,10 @@ const CodeMirrorEditor = ({
             /* Styling for the CodeMirror container */
             .CodeMirror {
               border-radius: 15px !important; /* Rounded corners for the entire editor */
+              font-family:"BrandonGrotesque" !important;
+              font-weight:390;
+              font-size:14px;
+              line-height:24px;
             }
 
             /* Styling for line numbers */

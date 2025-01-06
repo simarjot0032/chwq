@@ -11,9 +11,9 @@ const ConfirmedStatus = ({ status }) => {
         <UploadIcon />
         <span className="font-[390] text-[14px] ">Code Submitted!</span>
       </div>
-      <div className="w-full flex justify-end">
+      {/* <div className="w-full flex justify-end">
         <Image src={ProfileIcon} alt="Profile Icon"/>
-      </div>
+      </div> */}
     </div>
   );
 };

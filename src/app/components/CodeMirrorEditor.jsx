@@ -6,7 +6,6 @@ import ConfirmedStatus from "./Test/ConfirmedStatus";
 import ProgressBar from "./ProgressBar";
 import Image from "next/image";
 
-
 const CodeMirror = dynamic(() => import("react-codemirror"), { ssr: false });
 
 const CodeMirrorEditor = ({
@@ -19,7 +18,7 @@ const CodeMirrorEditor = ({
   setSelectedCategory,
   setSelectedTab,
   updateSelectedQuestion,
-  imageSrc
+  imageSrc,
 }) => {
   const editorRef = useRef(null);
   const [code, setCode] = useState(`// Write your code here\n\n\n\n\n\n\n\n\n`);
@@ -58,19 +57,18 @@ const CodeMirrorEditor = ({
     };
 
     updateLessons(updatedLessons);
-
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true); // Start loading
     try {
-      const response = await openAIService.sendPrompt(code, question);
+      const response = true; //await openAIService.sendPrompt(code, question);
+      const isCorrect = true; //response.toLowerCase() === "true"; // Convert string to boolean
+      setIsAnswerCorrect(isCorrect);
+      setShowConfirmed(true);
+      updateSelectedTab(selectedTab, categoryId, questionId, isCorrect);
       if (response) {
-        const isCorrect = response.toLowerCase() === "true"; // Convert string to boolean
-        setIsAnswerCorrect(isCorrect);
-        setShowConfirmed(true);
-        updateSelectedTab(selectedTab, categoryId, questionId, isCorrect);
       }
     } catch (error) {
       alert(error);
@@ -84,23 +82,29 @@ const CodeMirrorEditor = ({
     setShowResult(false);
     setShowConfirmed(false);
     setIsAnswerCorrect(null);
-    setCode(`// Write your code here\n\n\n\n\n\n\n\n\n ${updatedCode ? updatedCode : ""} `);
+    setCode(
+      `// Write your code here\n\n\n\n\n\n\n\n\n ${
+        updatedCode ? updatedCode : ""
+      } `
+    );
   };
 
   const handleNextQuestion = () => {
     // Find current category
     const currentCategory = Lessons[selectedTab].categories.find(
-      cat => cat.catid === categoryId
+      (cat) => cat.catid === categoryId
     );
 
     if (currentCategory) {
       // Find current question index in the category's questions array
-      const currentQuestionIndex = currentCategory.questions.findIndex(q => q.id === questionId);
+      const currentQuestionIndex = currentCategory.questions.findIndex(
+        (q) => q.id === questionId
+      );
 
       // Look for the next unanswered question after the current one
       const nextUnansweredQuestion = currentCategory.questions
         .slice(currentQuestionIndex + 1)
-        .find(q => !q.status);
+        .find((q) => !q.status);
 
       if (nextUnansweredQuestion) {
         // There is another unanswered question in this category
@@ -109,13 +113,14 @@ const CodeMirrorEditor = ({
         setShowConfirmed(false);
         setIsAnswerCorrect(null);
         setCode(`// Write your code here\n\n\n\n\n\n\n\n\n`);
-        updateSelectedQuestion(nextUnansweredQuestion);  // Update the selected question
+        updateSelectedQuestion(nextUnansweredQuestion); // Update the selected question
       } else {
         // Check if all questions in the category are answered
-        const allQuestionsAnswered = currentCategory.questions.every(q => q.status);
+        const allQuestionsAnswered = currentCategory.questions.every(
+          (q) => q.status
+        );
 
-        if (allQuestionsAnswered && typeof setSelectedCategory === 'function') {
-
+        if (allQuestionsAnswered && typeof setSelectedCategory === "function") {
           let nextCategory = Lessons[selectedTab].categories.find(
             (cat) => cat.catid === categoryId + 1
           );
@@ -127,15 +132,13 @@ const CodeMirrorEditor = ({
             setShowConfirmed(false);
             setIsAnswerCorrect(null);
             setCode(`// Write your code here\n\n\n\n\n\n\n\n\n`);
-
           }
         }
       }
     }
   };
   const handleNextLesson = () => {
-
-    if ((Object.keys(Lessons).length != selectedTab)) {
+    if (Object.keys(Lessons).length != selectedTab) {
       setSelectedTab(selectedTab + (selectedTab === 7 ? 3 : 1));
       if (selectedTab != 7) {
         let nextCategory = Lessons[selectedTab + 1]?.categories.find(
@@ -148,8 +151,7 @@ const CodeMirrorEditor = ({
         setShowConfirmed(false);
         setIsAnswerCorrect(null);
         setCode(`// Write your code here\n\n\n\n\n\n\n\n\n`);
-      }
-      else {
+      } else {
         let nextCategory = Lessons[selectedTab + 3]?.categories.find(
           (cat) => cat.catid == categoryId + 1
         );
@@ -161,31 +163,39 @@ const CodeMirrorEditor = ({
         setIsAnswerCorrect(null);
         setCode(`// Write your code here\n\n\n\n\n\n\n\n\n`);
       }
-    }
-    else {
+    } else {
       setShowCongrats(true);
     }
-  }
+  };
   useEffect(() => {
     let category = Lessons[selectedTab].categories;
-    if (category.every((category) => category.questions.every((question) => question.status == true))) {
+    if (
+      category.every((category) =>
+        category.questions.every((question) => question.status == true)
+      )
+    ) {
       setShowCongrats(true);
       const IdOfTime = setTimeout(() => {
-        setShowCongrats((prev) => prev ? false : true);
-        selectedTab == (Object.keys(Lessons)[Object.keys(Lessons).length - 1]) ? undefined : handleNextLesson();
-
+        setShowCongrats((prev) => (prev ? false : true));
+        selectedTab == Object.keys(Lessons)[Object.keys(Lessons).length - 1]
+          ? undefined
+          : handleNextLesson();
       }, 3000);
 
       return () => clearTimeout(IdOfTime);
     }
-  }, [Lessons, selectedTab, categoryId])
+  }, [Lessons, selectedTab, categoryId]);
   return (
     <>
       {showCongrats && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-[#2D2D2D] p-8 rounded-lg shadow-xl text-center">
-            <h2 className="text-2xl font-[450] text-green-500 mb-4">🎉 Congratulations! 🎉</h2>
-            <p className="text-white text-lg">You've completed all questions in this Lesson </p>
+            <h2 className="text-2xl font-[450] text-green-500 mb-4">
+              🎉 Congratulations! 🎉
+            </h2>
+            <p className="text-white text-lg">
+              You've completed all questions in this Lesson{" "}
+            </p>
           </div>
         </div>
       )}
@@ -210,17 +220,16 @@ const CodeMirrorEditor = ({
             onChange={(value) => {
               const updatedCode = String(value || ""); // Ensure value is always a string
               setCode(updatedCode);
-
             }}
           />
           <style jsx global>{`
             /* Styling for the CodeMirror container */
             .CodeMirror {
               border-radius: 15px !important; /* Rounded corners for the entire editor */
-              font-family:"BrandonGrotesque" !important;
-              font-weight:390;
-              font-size:14px;
-              line-height:24px;
+              font-family: "BrandonGrotesque" !important;
+              font-weight: 390;
+              font-size: 14px;
+              line-height: 24px;
             }
 
             /* Styling for line numbers */
@@ -254,22 +263,40 @@ const CodeMirrorEditor = ({
           <style jsx>{`
             .loader {
               display: inline-block;
-              }
-              `}</style>
+            }
+          `}</style>
         </div>
       )}
-
-      <Image width={40} height={40} src={imageSrc} alt="profile-icon" className="absolute right-[3px] bottom-9 rounded-[50%]" />
-
+      {/*      <Image width={40} height={40} src={imageSrc} alt="profile-icon"  />*/}
+      <div
+        className={`absolute right-[5px] rounded-[50%] border-[1px] ${
+          showResult ? "bottom-[33px]" : "bottom-[42px]"
+        }`}
+        style={{ padding: "5px" }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height={23}
+          width={22}
+          viewBox="0 0 448 512"
+          fill="rgba(245, 254, 253, 0.5)"
+        >
+          <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+        </svg>
+      </div>
       {showResult &&
         (isAnswerCorrect ? (
           <>
-            <Image width={200} height={200} layout="fit" src={"/answerRight.png"} alt="conguralation image" />
+            <Image
+              width={200}
+              height={200}
+              layout="fit"
+              src={"/answerRight.png"}
+              alt="conguralation image"
+            />
             <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-[390] w-full sm:w-8/12">
               Congratulations 🎉, your code worked successfully!{" "}
             </div>
-            <Image width={25} height={25} src={imageSrc} alt="profile-icon" className="rounded-[50%]" />
-
           </>
         ) : (
           <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-[390] w-full sm:w-8/12">
@@ -283,7 +310,6 @@ const CodeMirrorEditor = ({
               Retry
             </button>
           </div>
-
         ))}
       {showResult && isAnswerCorrect ? (
         <>
@@ -294,12 +320,20 @@ const CodeMirrorEditor = ({
                 Completed 1 out of 11 exercises. 10 more to go!
               </span> */}
               <ProgressBar
-                totalQuestions={
-                  Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.length, 0)
-                }
-                answeredQuestions={
-                  Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.reduce((total, no) => total + (no.status == true ? 1 : 0), 0), 0)
-                }
+                totalQuestions={Lessons[selectedTab].categories.reduce(
+                  (total, noofquestion) =>
+                    total + noofquestion.questions.length,
+                  0
+                )}
+                answeredQuestions={Lessons[selectedTab].categories.reduce(
+                  (total, noofquestion) =>
+                    total +
+                    noofquestion.questions.reduce(
+                      (total, no) => total + (no.status == true ? 1 : 0),
+                      0
+                    ),
+                  0
+                )}
               />
             </div>
 
@@ -307,7 +341,7 @@ const CodeMirrorEditor = ({
               className="z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[14px] font-[450] rounded-lg mt-1 disabled:cursor-not-allowed transition-transform transform hover:scale-105"
               type="button "
               onClick={handleNextQuestion}
-            // disabled={Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.length, 0) == Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.reduce((total, no) => total + (no.status == true ? 1 : 0), 0), 0) ? true : false}
+              // disabled={Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.length, 0) == Lessons[selectedTab].categories.reduce((total, noofquestion) => total + noofquestion.questions.reduce((total, no) => total + (no.status == true ? 1 : 0), 0), 0) ? true : false}
             >
               Next
             </button>

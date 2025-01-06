@@ -18,7 +18,6 @@ const CodeMirrorEditor = ({
   setSelectedCategory,
   setSelectedTab,
   updateSelectedQuestion,
-  imageSrc,
 }) => {
   const editorRef = useRef(null);
   const [code, setCode] = useState(`// Write your code here\n\n\n\n\n\n\n\n\n`);
@@ -63,12 +62,12 @@ const CodeMirrorEditor = ({
     e.preventDefault();
     setIsLoading(true); // Start loading
     try {
-      const response = true; //await openAIService.sendPrompt(code, question);
-      const isCorrect = true; //response.toLowerCase() === "true"; // Convert string to boolean
-      setIsAnswerCorrect(isCorrect);
-      setShowConfirmed(true);
-      updateSelectedTab(selectedTab, categoryId, questionId, isCorrect);
+      const response = await openAIService.sendPrompt(code, question);
       if (response) {
+        const isCorrect = response.toLowerCase() === "true"; // Convert string to boolean
+        setIsAnswerCorrect(isCorrect);
+        setShowConfirmed(true);
+        updateSelectedTab(selectedTab, categoryId, questionId, isCorrect);
       }
     } catch (error) {
       alert(error);
@@ -110,9 +109,9 @@ const CodeMirrorEditor = ({
         // There is another unanswered question in this category
 
         setShowResult(false);
+        setCode(`// Write your code here\n\n\n\n\n\n\n\n\n`);
         setShowConfirmed(false);
         setIsAnswerCorrect(null);
-        setCode(`// Write your code here\n\n\n\n\n\n\n\n\n`);
         updateSelectedQuestion(nextUnansweredQuestion); // Update the selected question
       } else {
         // Check if all questions in the category are answered
@@ -185,6 +184,7 @@ const CodeMirrorEditor = ({
       return () => clearTimeout(IdOfTime);
     }
   }, [Lessons, selectedTab, categoryId]);
+
   return (
     <>
       {showCongrats && (
@@ -194,28 +194,23 @@ const CodeMirrorEditor = ({
               🎉 Congratulations! 🎉
             </h2>
             <p className="text-white text-lg">
-              You've completed all questions in this Lesson{" "}
+              You've completed all questions in this Lesson
             </p>
           </div>
         </div>
       )}
-      {isLoading ? (
-        <div className="w-full flex justify-end">
-          <LoadingStatus />
-        </div>
-      ) : showConfirmed ? (
-        <div className="w-full flex justify-end">
-          <ConfirmedStatus />
-        </div>
-      ) : (
-        <div className="relative">
+
+      {!isLoading ? (
+        <div className="relative mb-[25px]">
           <CodeMirror
+            key={questionId}
             ref={editorRef}
             value={code}
             options={{
               mode: "javascript",
               theme: "dracula",
               lineNumbers: true,
+              readOnly: isLoading || showResult ? "nocursor" : false,
             }}
             onChange={(value) => {
               const updatedCode = String(value || ""); // Ensure value is always a string
@@ -227,16 +222,20 @@ const CodeMirrorEditor = ({
             .CodeMirror {
               border-radius: 15px !important; /* Rounded corners for the entire editor */
               font-family: "BrandonGrotesque" !important;
+              width: 80% !important;
               font-weight: 390;
               font-size: 14px;
               line-height: 24px;
             }
-
             /* Styling for line numbers */
             .CodeMirror-linenumber {
               border-radius: 15px !important; /* Rounded line numbers */
               color: #ffffff4d !important; /* Color of line numbers */
               text-align: center !important;
+            }
+            .ReactCodeMirror {
+              display: flex;
+              justify-content: end;
             }
             .CodeMirror-gutter {
               background-color: #333236;
@@ -246,44 +245,64 @@ const CodeMirrorEditor = ({
               overflow-y: hidden !important;
             }
           `}</style>
-          <button
-            className="absolute bottom-3 right-4 z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[#333333] text-[14px] font-semibold rounded-lg transition-transform transform hover:scale-105 "
-            type="submit"
-            onClick={handleSubmit}
-            disabled={isLoading}
-          >
-            {/* {isLoading ? (
-          <div className="loader border-2 border-white border-t-transparent rounded-full w-4 h-4 animate-spin"></div>
-        ) : (
-          "Submit"
-        )} */}
-            Submit
-          </button>
-
+          {isLoading || showResult ? (
+            ""
+          ) : (
+            <button
+              className="absolute bottom-3 right-4 z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[#333333] text-[14px] font-semibold rounded-lg transition-transform transform hover:scale-105 "
+              type="submit"
+              onClick={handleSubmit}
+              disabled={isLoading}
+            >
+              Submit
+            </button>
+          )}
+          {/* {isLoading ? (
+        <div className="loader border-2 border-white border-t-transparent rounded-full w-4 h-4 animate-spin"></div>
+      ) : (
+        "Submit"
+      )} */}
           <style jsx>{`
             .loader {
               display: inline-block;
             }
           `}</style>
         </div>
+      ) : (
+        <div className="w-full flex justify-end">
+          <LoadingStatus />
+        </div>
       )}
+      {/* {isLoading ? (
+        <div className="w-full flex justify-end">
+          <LoadingStatus />
+        </div>
+      ) : showConfirmed ? (
+        <div className="w-full flex justify-end">
+          <ConfirmedStatus />
+        </div>
+      ) : (
+        ""
+      )} */}
+
       {/*      <Image width={40} height={40} src={imageSrc} alt="profile-icon"  />*/}
-      <div
-        className={`absolute right-[5px] rounded-[50%] border-[1px] ${
-          showResult ? "bottom-[33px]" : "bottom-[42px]"
-        }`}
-        style={{ padding: "5px" }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height={23}
-          width={22}
-          viewBox="0 0 448 512"
-          fill="rgba(245, 254, 253, 0.5)"
+      {isLoading || showResult ? (
+        ""
+      ) : (
+        <div
+          className={`absolute right-[5px]  ${
+            showResult ? "bottom-[33px]" : "bottom-[42px]"
+          }`}
+          style={{ padding: "5px" }}
         >
-          <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
-        </svg>
-      </div>
+          <Image
+            src={"/profile-user.png"}
+            alt="user-icon"
+            width={25}
+            height={25}
+          />
+        </div>
+      )}
       {showResult &&
         (isAnswerCorrect ? (
           <>
@@ -302,13 +321,22 @@ const CodeMirrorEditor = ({
           <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-[390] w-full sm:w-8/12">
             Oops! 😅 There's a mistake in the code. Try again—you've got this!
             💪{" "}
-            <button
-              className="z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[14px] font-[450]  rounded-lg mt-1 "
-              type="button"
-              onClick={resetQuestion}
-            >
-              Retry
-            </button>
+            <div className="flex gap-[15px] mt-[2px]">
+              <button
+                className="z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[14px] font-[450]  rounded-lg mt-1 transition-transform transform hover:scale-105 "
+                type="button"
+                onClick={resetQuestion}
+              >
+                Retry
+              </button>
+              <button
+                className="z-[9999999] flex items-center justify-center px-4 py-2 hover:bg-[#FFCF4B] text-[#FFFFF] border-[1px] border-[#FFCF4B] text-[14px] font-[450]  rounded-lg mt-1 transition-transform transform hover:scale-105 hover:text-[#333333] "
+                type="button"
+                onClick={resetQuestion}
+              >
+                Something is wrong
+              </button>
+            </div>
           </div>
         ))}
       {showResult && isAnswerCorrect ? (

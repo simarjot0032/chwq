@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Button from "./Button";
 import CodeMirrorEditor from "../CodeMirrorEditor";
-import { useState } from "react";
 
 const Card = ({
   imageSrc,
@@ -39,23 +38,6 @@ const Card = ({
                 ].title
               }
             </span>
-            <span className="text-[18px] font-[390]">
-              {categoryId == 1
-                ? queId
-                : queId +
-                  Lessons[selectedTab].categories
-                    .slice(0, categoryId - 1)
-                    .reduce(
-                      (sum, category) => sum + category.questions.length,
-                      0
-                    )}
-              /
-              {Lessons[selectedTab].categories?.reduce(
-                (total, noofquestions) =>
-                  total + noofquestions.questions.length,
-                0
-              )}
-            </span>
           </div>
           <div className="flex flex-col gap-4 px-5 py-4 bg-[#FFFFFF1A] rounded-tr-[15px] rounded-br-[15px] rounded-bl-[15px] relative ">
             <span className="text-[14px] font-[390] leading-6 text-[#ffffff] ">
@@ -84,13 +66,13 @@ const Card = ({
               )}
             </span>
             {children}
-            <Image
-              src={imageSrc}
+            {/* <Image
+              src={"/CodeWizardsHQ.png"}
               alt={imageAlt}
               width={25}
               height={25}
               className="absolute right-1 bottom-1 rounded-[50%]"
-            />{" "}
+            />{" "} */}
             {/* Use number for width and height */}
           </div>
           {/* <div className="flex gap-2">

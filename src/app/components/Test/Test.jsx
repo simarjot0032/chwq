@@ -5,24 +5,24 @@ import { useEffect, useState } from "react";
 
 const Test = ({
   profileImage,
-  image,
   selectedTab,
   Lessons,
   updateLessons,
   selectedCategory,
   setSelectedCategory,
   lessonName,
-  setSelectedTab
+  setSelectedTab,
 }) => {
   const [queSelected, setQueSelected] = useState(null);
 
   useEffect(() => {
     // Get the latest category data from Lessons
     const currentCategory = Lessons[selectedTab].categories.find(
-      cat => cat.catid === selectedCategory.catid
+      (cat) => cat.catid === selectedCategory.catid
     );
 
-    if (currentCategory && !queSelected) {  // Only set if no question is selected
+    if (currentCategory && !queSelected) {
+      // Only set if no question is selected
       // Find the first question with status: false in the updated category data
       const unansweredQuestion = currentCategory.questions.find(
         (question) => !question.status
@@ -43,7 +43,9 @@ const Test = ({
     setQueSelected(newQuestion);
   };
   useEffect(() => {
-    if (selectedCategory.questions.every((question) => question.status == true)) {
+    if (
+      selectedCategory.questions.every((question) => question.status == true)
+    ) {
       const nextCategory = Lessons[selectedTab].categories.find(
         (cat) => cat.catid === selectedCategory.catid + 1
       );
@@ -56,7 +58,22 @@ const Test = ({
 
   return (
     <div className="w-full">
-      <LessonHeader title={lessonName} />
+      <div className="flex items-center">
+        <LessonHeader title={lessonName} />
+        <span className="text-[18px] font-[390] text-[#666666]">
+          {selectedCategory.catid == 1
+            ? queSelected?.id
+            : queSelected.id +
+              Lessons[selectedTab].categories
+                .slice(0, selectedCategory.catid - 1)
+                .reduce((sum, category) => sum + category.questions.length, 0)}
+          /
+          {Lessons[selectedTab].categories?.reduce(
+            (total, noofquestions) => total + noofquestions.questions.length,
+            0
+          )}
+        </span>
+      </div>
       <div className="flex flex-col  md:mt-0 text-white rounded-lg w-[100%]">
         {queSelected ? (
           <CardComponet
@@ -70,9 +87,9 @@ const Test = ({
             updateLessons={updateLessons}
             Lessons={Lessons}
             setSelectedCategory={setSelectedCategory}
-            updateSelectedQuestion={updateSelectedQuestion}  // Pass the function
+            updateSelectedQuestion={updateSelectedQuestion} // Pass the function
           >
-            {queSelected?.imageSrc ?
+            {queSelected?.imageSrc ? (
               <Image
                 src={queSelected.imageSrc}
                 alt="Question related image"
@@ -80,7 +97,8 @@ const Test = ({
                 height={100}
                 layout="fit"
                 className="rounded-[15px]"
-              /> : null}
+              />
+            ) : null}
           </CardComponet>
         ) : (
           <span>No unanswered questions left for this lesson!</span>

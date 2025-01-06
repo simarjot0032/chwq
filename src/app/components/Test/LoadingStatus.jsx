@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const LoadingStatus = ({ status }) => {
   return (
-    <div className="flex flex-col bg-[#0000004D] h-[300px] w-[85%] rounded-[15] justify-center relative mt-[25px] ">
+    <div className="flex flex-col bg-[#0000004D] h-[300px] w-[80%] rounded-[15] justify-center relative mt-[25px] ">
       <div className="flex flex-col items-center justify-center gap-4 ">
         <LoadingIcon />
         <span className="font-[390] text-[14px] ">Loading!</span>

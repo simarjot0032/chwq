@@ -332,7 +332,6 @@ const CodeMirrorEditor = ({
               <button
                 className="z-[9999999] flex items-center justify-center px-4 py-2 hover:bg-[#FFCF4B] text-[#FFFFF] border-[1px] border-[#FFCF4B] text-[14px] font-[450]  rounded-lg mt-1 transition-transform transform hover:scale-105 hover:text-[#333333] "
                 type="button"
-                onClick={resetQuestion}
               >
                 Something is wrong
               </button>

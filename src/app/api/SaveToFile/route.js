@@ -2,13 +2,13 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 export async function POST(req) {
   const githubApiKey = process.env.NEXT_GITHUB_KEY;
-  const filePath = "src/app/data.md";
+  const filePath = "src/lib/data/WrongAssementData.md";
   const userData = await req.json();
 
   const content = JSON.stringify(userData);
 
   const repo = "chwq";
-  const branch = "file";
+  const branch = "simarjot";
   const owner = "simarjot0032";
   const URL = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`;
   try {

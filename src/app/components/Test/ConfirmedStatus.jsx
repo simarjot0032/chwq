@@ -1,7 +1,4 @@
-import LoadingIcon from "@/lib/icon/LoadingIcon";
-import ProfileIcon from "@/lib/icon/ProfileIcon.png";
 import React from "react";
-import Image from "next/image";
 import UploadIcon from "@/lib/icon/UploadIcon";
 
 const ConfirmedStatus = ({ status }) => {

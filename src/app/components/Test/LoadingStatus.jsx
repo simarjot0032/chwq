@@ -1,7 +1,5 @@
 import LoadingIcon from "@/lib/icon/LoadingIcon";
-import ProfileIcon from "@/lib/icon/ProfileIcon.png";
 import React from "react";
-import Image from "next/image";
 
 const LoadingStatus = ({ status }) => {
   return (
@@ -10,14 +8,14 @@ const LoadingStatus = ({ status }) => {
         <LoadingIcon />
         <span className="font-[390] text-[14px] ">Loading!</span>
       </div>
-      <div className="w-full flex justify-end">
-        {/* <Image
+      {/* <div className="w-full flex justify-end">
+        <Image
           src={ProfileIcon}
           alt="Profile Icon"
           className="absolute bottom-4 right-0
 "
-        /> */}
-      </div>
+        />
+      </div> */}
     </div>
   );
 };

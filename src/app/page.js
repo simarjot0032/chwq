@@ -3,10 +3,8 @@ import { useState } from "react";
 import Test from "./components/Test/Test";
 import LessonsData from "../lib/data/Data";
 import Hourglass from "./components/Svg/Hourglass";
-import Image from "next/image";
 import Checkmark from "./components/Svg/Checkmark";
-import Lock from "./components/Svg/Lock";
-
+// import Lock from "./components/Svg/Lock"; for testing
 import "./Fonts.css";
 
 export default function VerticalTabs() {
@@ -67,14 +65,14 @@ export default function VerticalTabs() {
                 } ${
                   // !canEnableTab(lesson.index)
                   //   ? "cursor-not-allowed opacity-50"
-                  //   : ""
+                  //   : "" for testing
                   undefined
                 }`}
                 // disabled={!canEnableTab(lesson.index)} // Disable button if previous lesson is not passed
               >
                 <div className="flex flex-row justify-start gap-2 w-full font-[390] text-[18px] items-center">
                   {/* Show icons based on lesson state */}
-                  {lesson.index ? ( // add selectedTab=== for on state of lesson
+                  {lesson.index ? ( // add selectedTab=== for on state of lesson not now for testing
                     !lesson.passed ? (
                       selectedTab == lesson.index ? (
                         <Hourglass color={"gray"} />

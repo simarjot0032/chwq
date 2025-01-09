@@ -84,11 +84,7 @@ const CodeMirrorEditor = ({
     setShowResult(false);
     setShowConfirmed(false);
     setIsAnswerCorrect(null);
-    setCode(
-      `// Write your code here\n\n\n\n\n\n\n\n\n ${
-        updatedCode ? updatedCode : ""
-      } `
-    );
+    setCode(`// Write your code here\n\n\n\n\n\n\n\n\n ${updatedCode} `);
   };
 
   const handleNextQuestion = () => {

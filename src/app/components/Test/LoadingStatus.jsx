@@ -1,9 +1,13 @@
 import LoadingIcon from "@/lib/icon/LoadingIcon";
 import React from "react";
 
-const LoadingStatus = ({ status }) => {
+const LoadingStatus = ({ h, w }) => {
+  console.log(h, w);
   return (
-    <div className="flex flex-col bg-[#0000004D] h-[300px] w-[80%] rounded-[15] justify-center relative mt-[25px] ">
+    <div
+      className={`flex flex-col bg-[#0000004D] rounded-[15] justify-center relative mt-[25px] `}
+      style={{ width: `${w}%`, height: `${h}px` }}
+    >
       <div className="flex flex-col items-center justify-center gap-4 ">
         <LoadingIcon />
         <span className="font-[390] text-[14px] ">Loading!</span>

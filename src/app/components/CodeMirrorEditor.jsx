@@ -26,6 +26,8 @@ const CodeMirrorEditor = ({
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
   const [showResult, setShowResult] = useState(false);
   const [showCongrats, setShowCongrats] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [saveLoading, setSaveLoading] = useState(false);
 
   useEffect(() => {
     import("codemirror/lib/codemirror.css");
@@ -60,6 +62,7 @@ const CodeMirrorEditor = ({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setIsLoading(true); // Start loading
     try {
       const response = await openAIService.sendPrompt(code, question);
@@ -90,6 +93,7 @@ const CodeMirrorEditor = ({
 
   const handleNextQuestion = () => {
     // Find current category
+
     const currentCategory = Lessons[selectedTab].categories.find(
       (cat) => cat.catid === categoryId
     );
@@ -115,11 +119,11 @@ const CodeMirrorEditor = ({
         updateSelectedQuestion(nextUnansweredQuestion); // Update the selected question
       } else {
         // Check if all questions in the category are answered
-        const allQuestionsAnswered = currentCategory.questions.every(
-          (q) => q.status
-        );
+        // const allQuestionsAnswered = currentCategory.questions.every(
+        // (q) => q.status
+        // );allQuestionsAnswered && // testing purpose
 
-        if (allQuestionsAnswered && typeof setSelectedCategory === "function") {
+        if (typeof setSelectedCategory === "function") {
           let nextCategory = Lessons[selectedTab].categories.find(
             (cat) => cat.catid === categoryId + 1
           );
@@ -166,6 +170,35 @@ const CodeMirrorEditor = ({
       setShowCongrats(true);
     }
   };
+  const handleWrongAssement = async () => {
+    setSaveLoading(true);
+    setSaving(true);
+    let update = code
+      .split("")
+      .map((letter) =>
+        letter == "\n" ? " <br> " : letter == "\t" ? "    " : letter
+      )
+      .join("");
+    const response = await fetch("../api/SaveToFile", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        question: `${question} <br> <br>`,
+        code: `${update} <br> Assement made is wrong`,
+      }),
+    });
+
+    if (response.ok) {
+      setSaveLoading(false);
+
+      setTimeout(() => {
+        setSaving(false);
+        handleNextQuestion();
+      }, 3000);
+    }
+  };
   useEffect(() => {
     let category = Lessons[selectedTab].categories;
     if (
@@ -199,7 +232,26 @@ const CodeMirrorEditor = ({
           </div>
         </div>
       )}
+      {saving && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-[#2D2D2D] p-8 rounded-lg shadow-xl text-center">
+            {saveLoading && saving && (
+              <>
+                <div className="mb-[25px]">
+                  <LoadingStatus h={150} w={100} />
+                </div>
+                <p className="text-white text-lg">Submitting your issue!</p>
+              </>
+            )}
 
+            {saving && !saveLoading && (
+              <p className="text-white text-lg">
+                Your issue has been recored. Moving to next Question!!
+              </p>
+            )}
+          </div>
+        </div>
+      )}
       {!isLoading ? (
         <div className="relative mb-[25px]">
           <CodeMirror
@@ -270,7 +322,7 @@ const CodeMirrorEditor = ({
         </div>
       ) : (
         <div className="w-full flex justify-end">
-          <LoadingStatus />
+          <LoadingStatus h={300} w={80} />
         </div>
       )}
       {/* {isLoading ? (
@@ -285,7 +337,6 @@ const CodeMirrorEditor = ({
         ""
       )} */}
 
-      {/*      <Image width={40} height={40} src={imageSrc} alt="profile-icon"  />*/}
       {isLoading || showResult ? (
         ""
       ) : (
@@ -332,6 +383,7 @@ const CodeMirrorEditor = ({
               <button
                 className="z-[9999999] flex items-center justify-center px-4 py-2 hover:bg-[#FFCF4B] text-[#FFFFF] border-[1px] border-[#FFCF4B] text-[14px] font-[450]  rounded-lg mt-1 transition-transform transform hover:scale-105 hover:text-[#333333] "
                 type="button"
+                onClick={handleWrongAssement}
               >
                 Something is wrong
               </button>

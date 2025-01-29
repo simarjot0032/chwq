@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import LeftArror from "@/lib/icon/LeftArror";
 import RightArrow from "@/lib/icon/RightArrow";
+import { coerceBoolean } from "openai/core";
 
 const Test = ({
   profileImage,
@@ -128,30 +129,42 @@ const Test = ({
           style={{ gap: "10px" }}
         >
           <button
-            disabled={(() => {
-              const lesson = Lessons[selectedTab];
-              const categories = lesson.categories;
-              const currentCategoryIndex = categories.findIndex(
-                (category) => category.catid === selectedCategory.catid
-              );
-              const currentQuestionIndex = selectedCategory.questions.findIndex(
-                (q) => q.id === queSelected?.id
-              );
-              const previousQuestionsInCurrentCategory =
-                selectedCategory.questions.slice(0, currentQuestionIndex);
-              const hasUnansweredBefore =
-                previousQuestionsInCurrentCategory.some((q) => !q.status);
-              const previousCategories = categories.slice(
-                0,
-                currentCategoryIndex
-              );
-              const hasUnansweredInPreviousCategories = previousCategories
-                .flatMap((cat) => cat.questions)
-                .some((q) => !q.status);
-              return !(
-                hasUnansweredBefore || hasUnansweredInPreviousCategories
-              );
-            })()}
+            disabled={
+              queSelected?.status ||
+              (() => {
+                const lesson = Lessons[selectedTab];
+                const categories = lesson.categories;
+                const currentCategoryIndex = categories.findIndex(
+                  (category) => category.catid === selectedCategory.catid
+                );
+                const currentQuestionIndex =
+                  selectedCategory.questions.findIndex(
+                    (q) => q.id === queSelected?.id
+                  );
+                const previousQuestionsInCurrentCategory =
+                  selectedCategory.questions.slice(0, currentQuestionIndex);
+                const previousQuestions =
+                  previousQuestionsInCurrentCategory.filter(
+                    (q) => queSelected?.id != q.id || queSelected.id < q.id
+                  );
+                const hasUnansweredBefore = previousQuestions.some(
+                  (q) => !q.status
+                );
+                console.log(previousQuestions);
+                const previousCategories = categories.slice(
+                  0,
+                  currentCategoryIndex
+                );
+
+                const hasUnansweredInPreviousCategories = previousCategories
+                  .flatMap((cat) => cat.questions)
+                  .some((q) => !q.status);
+
+                return !(
+                  hasUnansweredInPreviousCategories || hasUnansweredBefore
+                );
+              })()
+            }
             className="disabled:cursor-not-allowed"
             onClick={handlePrevious}
           >

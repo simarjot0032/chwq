@@ -367,7 +367,8 @@ const CodeMirrorEditor = ({
         ) : (
           <div className="mt-2 px-4 py-2 bg-[#333236] rounded-[15px] text-[16px] font-[390] w-full sm:w-8/12">
             Oops! 😅 There's a mistake in the code. Try again—you've got this!
-            💪{" "}
+            💪 . Otherwise if you think that asessment is incorrect, reach out
+            to your instructor.
             <div className="flex gap-[15px] mt-[2px]">
               <button
                 className="z-[9999999] flex items-center justify-center px-4 py-2 bg-[#FFCF4B] text-[#333333] text-[14px] font-[450]  rounded-lg mt-1 transition-transform transform hover:scale-105 "
@@ -376,13 +377,13 @@ const CodeMirrorEditor = ({
               >
                 Retry
               </button>
-              <button
+              {/* <button
                 className="z-[9999999] flex items-center justify-center px-4 py-2 hover:bg-[#FFCF4B] text-[#FFFFF] border-[1px] border-[#FFCF4B] text-[14px] font-[450]  rounded-lg mt-1 transition-transform transform hover:scale-105 hover:text-[#333333] "
                 type="button"
                 onClick={handleWrongAssement}
               >
                 Something is wrong
-              </button>
+              </button> */}
             </div>
           </div>
         ))}

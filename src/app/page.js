@@ -137,7 +137,7 @@ export default function VerticalTabs() {
             value={selectedTab} // Use selectedTab as is, it should always be a number
             onChange={(e) => {
               const lessonIndex = Number(e.target.value);
-              // if (canEnableTab(lessonIndex)) {
+              // if (canEnableTab(lessonIndex)) { //just for testing
               handleTabChange(lessonIndex);
               // }
             }}
